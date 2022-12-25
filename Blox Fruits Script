@@ -7221,24 +7221,6 @@ TestTab:AddToggle({
 _G.aimbot = AimLookLookaim
     end
 })
-TestTab:AddToggle({
-    Name = "AimBot",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(bool)
-	Aimbot = bool
-    end
-})
-local lp = game:GetService('Players').LocalPlayer
-local mouse = lp:GetMouse()
-mouse.Button1Down:Connect(function()
-	if Aimbot and game.Players.LocalPlayer.Character:FindFirstChild(_G.PLAYERSELECT) then
-		local args = {
-			[1] = game:GetService("Players"):FindFirstChild(SelectedKillPlayer).Character.HumanoidRootPart.Position,
-			[2] = game:GetService("Players"):FindFirstChild(SelectedKillPlayer).Character.HumanoidRootPart
-		}
-		game:GetService("Players").LocalPlayer.Character[_G.PLAYERSELECT].RemoteFunctionShoot:InvokeServer(unpack(args))
-	end 
-end)
 
 local Page = PepsiUi:CreateTab({
     Name = "Teleport"
