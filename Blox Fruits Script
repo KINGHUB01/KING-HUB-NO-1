@@ -6059,6 +6059,14 @@ TestTab:AddToggle({
     end
 })
 end
+TestTab:AddToggle({
+    Name = "Auto Farm lv 2400 - 2450",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Farm25)
+_G.AutoLV25 = Farm25
+loadstring(game:HttpGet("https://pastebin.com/raw/Da1gezRM"))()
+    end
+})
 
 TestTab:AddButton({
     Name = "RedeemAllCode",
