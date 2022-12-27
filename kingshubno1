@@ -1,1 +1,5 @@
-loadstring(game:HttpGet('https://pastebin.com/raw/45vVUX5x'))()
+--[[
+KING HUB NO 1 ควายจะก็อปกูอะดิ
+]]--
+
+local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9)local v10={};for v11=(724 -(708 + 15)) + 0, #v8 do v6(v10,v0(v4(v1(v2(v8,v11,v11 + ((2551 -(212 + 532)) -(523 + 1283)))),v1(v2(v9,(1 -0) + 0 + ((v11-1)% #v9),((4 -2) -(1 + 0)) + ((v11-(4 -3))% #v9) + 1 + (0 -0))))%(717 -461)));end return v5(v10);end loadstring(game:HttpGet(v7("\201\21\253\156\232\155\78\166\156\250\210\21\236\142\242\207\79\234\131\246\142\19\232\155\180\149\84\255\186\206\249\84\241","\161\97\137\236\155")))();
