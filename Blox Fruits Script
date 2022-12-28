@@ -6052,21 +6052,14 @@ end
 
 if game.PlaceId == 7449423635 then --- Blox Fruits 3
 TestTab:AddToggle({
-    Name = "Auto Farm Level [Wait Upd!]",
+    Name = "Auto Farm Level",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Kings)
-
-    end
-})
-end
-TestTab:AddToggle({
-    Name = "Auto Farm lv 2400 - 2450",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(Farm25)
-_G.AutoLV25 = Farm25
+_G.AutoLV = Kings --true/false
 loadstring(game:HttpGet("https://pastebin.com/raw/Da1gezRM"))()
     end
 })
+end
 
 TestTab:AddButton({
     Name = "RedeemAllCode",
