@@ -6305,6 +6305,18 @@ Camera:Stop()
     end
 })
 TestTab:AddToggle({
+    Name = "Anit AFK",
+	Value = true, -- ปรับค่าToggle true/false or Config
+    Callback = function(vu)
+			local vu = game:GetService("VirtualUser")
+			game:GetService("Players").LocalPlayer.Idled:connect(function()
+				vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+				wait(1)
+				vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+			end)
+    end
+})
+TestTab:AddToggle({
     Name = "Bring Mob",
 	Value = true, -- ปรับค่าToggle true/false or Config
     Callback = function(Brinmob)
@@ -7146,30 +7158,41 @@ local TestTab = Page:CreateSection({
     Name = "Combat", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
 })
-PlayerName = {}
+players = {}
 
-        for i,v in pairs(game.Players:GetChildren()) do  
-            table.insert(PlayerName ,v.Name)
-        end
-        SelectedKillPlayer = ""
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
 
 TestTab:AddDropdown({
-	Name = "Selected Players",
-	Value = PlayerName, -- ค่าที่จะให้มันเลือก
-	List = PlayerName,
-	Callback = function(plys)
-            SelectedKillPlayer = plys
-            SelectedPly:Refresh("Selected Player : "..SelectedKillPlayer)
+	Name = "Players",
+	Value = players, -- ค่าที่จะให้มันเลือก
+	List = players,
+	Callback = function(abc)
+    PlayersPPEED = abc
 	end
 })
 TestTab:AddButton({
     Name = "Refresh",
     Callback = function()
-            PlayerName = {}
-            Player:Clear()
-            for i,v in pairs(game.Players:GetChildren()) do  
-                Player:Add(v.Name)
-            end
+    table.clear(players)
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
+    end
+})
+
+TestTab:AddToggle({
+    Name = "Spectate",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(bool)
+			Sp = bool
+			local plr1 = game.Players.LocalPlayer.Character.Humanoid
+			local plr2 = game.Players:FindFirstChild(PlayersPPEED)
+			repeat wait(.1)
+				game.Workspace.Camera.CameraSubject = plr2.Character.Humanoid
+			until Sp == false 
+			game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
     end
 })
 
@@ -7187,7 +7210,7 @@ _G.TPs = TP
                 setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
                 game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[SelectedKillPlayer].Character.HumanoidRootPart.CFrame * CFrame.new(0,20,0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayersPPEED].Character.HumanoidRootPart.CFrame * CFrame.new(0,20,0)
             end
         end)
        end)
