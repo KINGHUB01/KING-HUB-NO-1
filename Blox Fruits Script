@@ -6326,6 +6326,9 @@ _G.Brinmobs = Brinmob
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Brinmobs then
+
+                 if _G.AutoLV == true then
+
 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 if v.Name == MON then
@@ -6347,6 +6350,9 @@ end
 end
 end
 end
+
+                    end
+
             end
         end)
        end)
