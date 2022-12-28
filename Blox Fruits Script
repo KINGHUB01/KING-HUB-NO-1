@@ -6284,7 +6284,6 @@ Camera:Stop()
 TestTab:AddToggle({
     Name = "Fast Attack",
 	Value = true, -- ปรับค่าToggle true/false or Config
-        Save = true
     Callback = function(FAST)
 _G.FASTs = FAST
 
