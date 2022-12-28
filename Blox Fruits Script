@@ -6421,6 +6421,21 @@ local TestTab = Page:CreateSection({
 })
 
 TestTab:AddToggle({
+    Name = "Auto Set Home",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Homese)
+_G.Homes = Homese
+while _G.Homes do wait()
+    pcall(function()
+local A_1 = "SetSpawnPoint"
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1)
+    end)
+end
+    end
+})
+
+TestTab:AddToggle({
     Name = "HitBox",
 	Value = ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(hit)
