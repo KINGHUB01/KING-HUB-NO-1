@@ -6253,7 +6253,7 @@ end
 })
 
 local TestTab = Page:CreateSection({
-    Name = "Setting", -- ชื่อ
+    Name = "Setting Auto Farm", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
 })
 
