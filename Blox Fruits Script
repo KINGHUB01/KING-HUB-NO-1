@@ -6698,16 +6698,6 @@ while _G.autoWs do wait()
 end
     end
 })
-ItemList = {"0","0.5","0.175","1","5","10"}
-
-TestTab:AddDropdown({
-	Name = "Damage Aura Delay",
-	Value = "0.175", -- ค่าที่จะให้มันเลือก
-	List = ItemList,
-	Callback = function(value)
-        DMG = EDGME
-	end
-})
 
 TestTab:AddToggle({
     Name = "Damage Aura",
@@ -6780,7 +6770,7 @@ else
 	cac=wait
 end
 
-while _G.DMGAURA do wait(DMG)
+while _G.DMGAURA do wait(0.175)
     pcall(function()
 	AttackNoCD()
     end)
