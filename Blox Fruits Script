@@ -6267,8 +6267,26 @@ _G.CandyFarms = CandyFarm
         pcall(function()
             if _G.CandyFarms then
 function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies["Snow Demon [Lv. 2425]"].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
 
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.CandyFarms then
 function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies["Candy Pirate [Lv. 2400]"].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.CandyFarms then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-1080.08093, 14.6404381, -14479.3418, 0.999487996, -8.0559694e-08, 0.0319965556, 7.88432359e-08, 1, 5.49067565e-08, -0.0319965556, -5.23559294e-08, 0.999487996))
             end
         end)
        end)
