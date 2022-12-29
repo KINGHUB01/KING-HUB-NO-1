@@ -8443,9 +8443,9 @@ function UpdatePlayerChams()
                         name.BackgroundTransparency = 1
                         name.TextStrokeTransparency = 0.5
                         if v.Team == game.Players.LocalPlayer.Team then
-                            name.TextColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+                            name.TextColor3 = Color3.new(255, 450, 0)
                         else
-                            name.TextColor3 = Color3.new(1, 0.333333, 0.498039)
+                            name.TextColor3 = Color3.new(255, 0, 0)
                         end
                     else
                         v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
