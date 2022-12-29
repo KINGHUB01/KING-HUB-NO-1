@@ -8670,6 +8670,24 @@ TestTab:AddToggle({
 })
 
 TestTab:AddToggle({
+    Name = "Infinite Agility",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Agility)
+_G.Agilitys = Agility
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Agilitys then
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 150
+            end
+        end)
+       end)
+    end)
+    end
+})
+
+TestTab:AddToggle({
     Name = "Walk On Water",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Wateronnoob)
