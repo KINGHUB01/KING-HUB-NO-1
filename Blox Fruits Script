@@ -6288,7 +6288,7 @@ local TestTab = Page:CreateSection({
 })
 
 TestTab:AddToggle({
-    Name = "Candy",
+    Name = "Candy [Word 3]",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(CandyFarm)
 _G.CandyFarms = CandyFarm
