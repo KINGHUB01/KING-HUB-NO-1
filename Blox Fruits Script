@@ -6661,6 +6661,14 @@ local TestTab = Page:CreateSection({
 })
 
 TestTab:AddToggle({
+    Name = "Super Farm",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(SuperFarmE)
+_G.SuperFarm = SuperFarmE
+    end
+})
+
+TestTab:AddToggle({
     Name = "Auto Set Home",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Homese)
