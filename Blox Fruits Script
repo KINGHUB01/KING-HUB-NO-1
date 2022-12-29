@@ -7984,6 +7984,35 @@ _G.aimbot = AimLookLookaim
 local Page = PepsiUi:CreateTab({
     Name = "Teleport"
 })
+local TestTab = Page:CreateSection({
+    Name = "Other Teleport", -- ชื่อ
+    Side = "Right" -- ตำแหน่ง Left/Right
+})
+
+TestTab:AddButton({
+    Name = "Word 1",
+    Callback = function()
+local A_1 = "TravelMain"
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1)
+    end
+})
+TestTab:AddButton({
+    Name = "Word 2",
+    Callback = function()
+local A_1 = "TravelDressrosa"
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1)
+    end
+})
+TestTab:AddButton({
+    Name = "Word 3",
+    Callback = function()
+local A_1 = "TravelZou"
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1)
+    end
+})
 
     if game.PlaceId == 7449423635 then
 local TestTab = Page:CreateSection({
