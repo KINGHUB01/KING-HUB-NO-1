@@ -8806,24 +8806,84 @@ TestTab:AddToggle({
 			originalstam = LocalPlayer.Character.Energy.value
     end
 })
+TestTab:AddToggle({
+    Name = "Infinite Obversation Range",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(value)
+    getgenv().InfiniteObRange = value
+    local VS = game:GetService("Players").LocalPlayer.VisionRadius.Value
+    while getgenv().InfiniteObRange do
+        wait()
+        local player = game:GetService("Players").LocalPlayer
+        local char = player.Character
+        local VisionRadius = player.VisionRadius
+        if player then
+            if char.Humanoid.Health <= 0 then 
+                wait(5) 
+            end
+            VisionRadius.Value = math.huge
+        elseif getgenv().InfiniteObRange == false and player then
+            VisionRadius.Value = VS
+        end
+    end
+    end
+})
 
 TestTab:AddToggle({
     Name = "Infinite Agility",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Agility)
-_G.Agilitys = Agility
-
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.Agilitys then
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 150
-            end
-        end)
-       end)
-    end)
+    InfAbility = Agility
+    if Agility == false then
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
+    end
     end
 })
+
+spawn(function()
+    while wait() do
+        if InfAbility then
+            InfAb()
+        end
+    end
+end)
+
+function InfAb()
+    if InfAbility then
+        if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+            local inf = Instance.new("ParticleEmitter")
+            inf.Acceleration = Vector3.new(0,0,0)
+            inf.Archivable = true
+            inf.Drag = 20
+            inf.EmissionDirection = Enum.NormalId.Top
+            inf.Enabled = true
+            inf.Lifetime = NumberRange.new(0.2,0.2)
+            inf.LightInfluence = 0
+            inf.LockedToPart = true
+            inf.Name = "Agility"
+            inf.Rate = 500
+            local numberKeypoints2 = {
+                NumberSequenceKeypoint.new(0, 0);
+                NumberSequenceKeypoint.new(1, 4); 
+            }
+            inf.Size = NumberSequence.new(numberKeypoints2)
+            inf.RotSpeed = NumberRange.new(999, 9999)
+            inf.Rotation = NumberRange.new(0, 0)
+            inf.Speed = NumberRange.new(30, 30)
+            inf.SpreadAngle = Vector2.new(360,360)
+            inf.Texture = "rbxassetid://7157487174"
+            inf.VelocityInheritance = 0
+            inf.ZOffset = 2
+            inf.Transparency = NumberSequence.new(0)
+            inf.Color = ColorSequence.new(Color3.fromRGB(102, 255, 153),Color3.fromRGB(102, 255, 153))
+            inf.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+        end
+    else
+        if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
+        end
+    end
+end
 
 TestTab:AddToggle({
     Name = "Walk On Water",
