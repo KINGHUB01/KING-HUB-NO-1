@@ -9361,18 +9361,32 @@ TestTab:AddButton({
 })
 
 local TestTab = Page:CreateSection({
-    Name = "Race v4", -- ชื่อ
+    Name = "Mystic Island", -- ชื่อ
     Side = "Left" -- ตำแหน่ง Left/Right
 })
 
-TestTab:AddButton({
+TestTab:AddToggle({
     Name = "Teleport To PluginGrass",
-    Callback = function()
-local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart
-local object = "Part"
-local pos = p1.CFrame
+    Callback = function(PluginGrass)
+_G.PluginGrasss = PluginGrass
 
-p1.CFrame = game.Workspace.Map.MysticIsland.PluginGrass.CFrame
+            if _G.PluginGrasss == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.PluginGrasss then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/200,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(Workspace.Map.MysticIsland.PluginGrass.CFrame * CFrame.new(0,0,0))
+            end
+       end)
+    end)
     end
 })
 
