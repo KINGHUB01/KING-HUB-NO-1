@@ -6192,6 +6192,62 @@ end
     end
 })
 
+TestTab:AddToggle({
+    Name = "Auto Kill Sea Beast [Beta]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Beastsk)
+_G.Beastssk = Beastsk
+
+            if _G.Beastssk == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.Beastssk then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.SeaBeasts.SeaBeast1.HumanoidRootPart.CFrame*CFrame.new(0,300,0))
+            end
+       end)
+    end)
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if _G.Beastssk then
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(true, "Z", false, game)
+
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(false, "Z", false, game)
+
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(true, "X", false, game)
+
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(false, "X", false, game)
+
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(true, "C", false, game)
+
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(false, "C", false, game)
+
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(true, "F", false, game)
+
+       local vim = game:service("VirtualInputManager")
+       vim:SendKeyEvent(false, "F", false, game)
+            end
+       end)
+    end)
+
+    end
+})
+
 TestTab:AddButton({
     Name = "RedeemAllCode",
     Callback = function()
@@ -8145,7 +8201,7 @@ _G.Beastss = Beasts
                 setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
                 game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
 
-function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.SeaBeasts.SeaBeast1.HumanoidRootPart.CFrame*CFrame.new(0,0,0))
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.SeaBeasts.SeaBeast1.HumanoidRootPart.CFrame*CFrame.new(0,300,0))
             end
        end)
     end)
