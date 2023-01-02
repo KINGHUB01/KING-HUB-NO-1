@@ -6026,6 +6026,32 @@ while _G.SPEEDHACKERs do wait()
  end
     end
 })
+TestTab:AddSlider({
+	Name = "Slider",
+	Value = 70, -- ค่าที่ให้เลือก
+	Min = 70, -- น้อยสุด
+	Max = 120, -- มากสุด
+	Format = "Field of View : %s%%",
+	Callback = function(FieldOfViewse)
+    FieldOfViewe = FieldOfViewse
+	end
+})
+
+TestTab:AddToggle({
+    Name = "Field of View",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(FieldOfViews)
+_G.FieldOfView = FieldOfViews
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FieldOfView then
+game:GetService("Workspace").Camera.FieldOfView = FieldOfViewe
+        end
+    end)
+end)
+    end
+})
 
 TestTab:AddSlider({
 	Name = "Boots",
