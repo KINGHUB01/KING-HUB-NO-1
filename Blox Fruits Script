@@ -8114,16 +8114,99 @@ Event:InvokeServer(A_1)
     end
 })
 
-local TestTab = Page:CreateSection({
-    Name = "Combat", -- ชื่อ
-    Side = "Right" -- ตำแหน่ง Left/Right
-})
-
 TestTab:AddToggle({
     Name = "AimLook [right Mouse]",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(AimLookLookaim)
 _G.aimbot = AimLookLookaim
+    end
+})
+
+TestTab:AddLabel({
+    Name = "|\Check Notification/|"
+})
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+TestTab:AddButton({
+    Name = "Bounty",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+    end
+})
+TestTab:AddButton({
+    Name = "Level [Select]",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.Level.Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+    end
+})
+TestTab:AddButton({
+    Name = "Beli [Select]",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.Beli.Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+    end
+})
+TestTab:AddButton({
+    Name = "Fragments [Select]",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.Fragments.Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+    end
+})
+TestTab:AddButton({
+    Name = "Race [Select]",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.Race.Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+    end
+})
+TestTab:AddButton({
+    Name = "Devil Fruit [Select]",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.DevilFruit.Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+    end
+})
+TestTab:AddButton({
+    Name = "CrewID [Select]",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.CrewID.Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+    end
+})
+TestTab:AddButton({
+    Name = "Buso Color [Select]",
+    Callback = function()
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.BusoColor.Value},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
     end
 })
 
