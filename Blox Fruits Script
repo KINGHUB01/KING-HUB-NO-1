@@ -9067,13 +9067,15 @@ end)
 TestTab:AddButton({
     Name = "invisible",
     Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6115.24658, 262.117401, 83.3238983, 0.216375887, 4.30702496e-09, 0.976310134, -4.92640728e-09, 1, -3.31971295e-09, -0.976310134, -4.09139567e-09, 0.216375887)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6115.24658, 262.117401, 83.3238983, 0.216375887, 4.30702496e-09, 0.976310134, -4.92640728e-09, 1, -3.31971295e-09, -0.976310134, -4.09139567e-09, 0.216375887)
-
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/100000,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,10000,0))
+wait(0.2)
 _G.plr = game:GetService("Players").LocalPlayer.Character
 _G.plr.LowerTorso.Root:Remove()
 _G.plr.UpperTorso.Waist:Remove()
+wait(0.2)
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/100000,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-10000,0))
     end
 })
 TestTab:AddButton({
