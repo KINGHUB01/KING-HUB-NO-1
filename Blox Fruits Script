@@ -9064,7 +9064,18 @@ spawn(function()
         end
     end)
 end)
+TestTab:AddButton({
+    Name = "invisible",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6115.24658, 262.117401, 83.3238983, 0.216375887, 4.30702496e-09, 0.976310134, -4.92640728e-09, 1, -3.31971295e-09, -0.976310134, -4.09139567e-09, 0.216375887)
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6115.24658, 262.117401, 83.3238983, 0.216375887, 4.30702496e-09, 0.976310134, -4.92640728e-09, 1, -3.31971295e-09, -0.976310134, -4.09139567e-09, 0.216375887)
 
+_G.plr = game:GetService("Players").LocalPlayer.Character
+_G.plr.LowerTorso.Root:Remove()
+_G.plr.UpperTorso.Waist:Remove()
+    end
+})
 TestTab:AddButton({
     Name = "Random Fruit",
     Callback = function()
