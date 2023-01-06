@@ -8269,238 +8269,306 @@ function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForC
 
     if game.PlaceId == 7449423635 then
 local TestTab = Page:CreateSection({
-    Name = "Reset Teleport", -- ชื่อ
+    Name = "Teleport", -- ชื่อ
     Side = "Left" -- ตำแหน่ง Left/Right
 })
 
-TestTab:AddButton({
-    Name = "Port Town",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-271.642944, 6.7557435, 5341.26855, 0.972130835, 2.93636955e-08, -0.23443903, -2.55617127e-08, 1, 1.92560385e-08, 0.23443903, -1.27267263e-08, 0.972130835)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-271.642944, 6.7557435, 5341.26855, 0.972130835, 2.93636955e-08, -0.23443903, -2.55617127e-08, 1, 1.92560385e-08, 0.23443903, -1.27267263e-08, 0.972130835)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-271.642944, 6.7557435, 5341.26855, 0.972130835, 2.93636955e-08, -0.23443903, -2.55617127e-08, 1, 1.92560385e-08, 0.23443903, -1.27267263e-08, 0.972130835)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-271.642944, 6.7557435, 5341.26855, 0.972130835, 2.93636955e-08, -0.23443903, -2.55617127e-08, 1, 1.92560385e-08, 0.23443903, -1.27267263e-08, 0.972130835)
-    end
-})
-
-TestTab:AddButton({
-    Name = "Gaint Tree",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2276.07471, 25.8785019, -6476.15771, 0.874622703, 0, -0.484804183, 0, 1, 0, 0.484804183, 0, 0.874622703)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2276.07471, 25.8785019, -6476.15771, 0.874622703, 0, -0.484804183, 0, 1, 0, 0.484804183, 0, 0.874622703)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2276.07471, 25.8785019, -6476.15771, 0.874622703, 0, -0.484804183, 0, 1, 0, 0.484804183, 0, 0.874622703)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2276.07471, 25.8785019, -6476.15771, 0.874622703, 0, -0.484804183, 0, 1, 0, 0.484804183, 0, 0.874622703)
-    end
-})
-
-TestTab:AddButton({
-    Name = "Peanut lsland",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2061.48877, 38.1299133, -10204.042, -0.693523169, 1.70998629e-08, 0.720434308, 2.77166841e-08, 1, 2.94586133e-09, -0.720434308, 2.20110739e-08, -0.693523169)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2061.48877, 38.1299133, -10204.042, -0.693523169, 1.70998629e-08, 0.720434308, 2.77166841e-08, 1, 2.94586133e-09, -0.720434308, 2.20110739e-08, -0.693523169)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2061.48877, 38.1299133, -10204.042, -0.693523169, 1.70998629e-08, 0.720434308, 2.77166841e-08, 1, 2.94586133e-09, -0.720434308, 2.20110739e-08, -0.693523169)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2061.48877, 38.1299133, -10204.042, -0.693523169, 1.70998629e-08, 0.720434308, 2.77166841e-08, 1, 2.94586133e-09, -0.720434308, 2.20110739e-08, -0.693523169)
-    end
-})
-
-TestTab:AddButton({
-    Name = "Ice Creame lsland",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-840.188477, 65.8452759, -10877.3789, -0.573598981, -3.1450277e-08, 0.819136262, -3.26479004e-08, 1, 1.55327928e-08, -0.819136262, -1.78334858e-08, -0.573598981)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-840.188477, 65.8452759, -10877.3789, -0.573598981, -3.1450277e-08, 0.819136262, -3.26479004e-08, 1, 1.55327928e-08, -0.819136262, -1.78334858e-08, -0.573598981)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-840.188477, 65.8452759, -10877.3789, -0.573598981, -3.1450277e-08, 0.819136262, -3.26479004e-08, 1, 1.55327928e-08, -0.819136262, -1.78334858e-08, -0.573598981)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-840.188477, 65.8452759, -10877.3789, -0.573598981, -3.1450277e-08, 0.819136262, -3.26479004e-08, 1, 1.55327928e-08, -0.819136262, -1.78334858e-08, -0.573598981)
-    end
-})
-
-TestTab:AddButton({
-    Name = "Sea of Treats 1",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2106.06812, 37.8239136, -11908.5205, 0.173624352, 0, -0.984811962, 0, 1, 0, 0.984811962, 0, 0.173624352)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2106.06812, 37.8239136, -11908.5205, 0.173624352, 0, -0.984811962, 0, 1, 0, 0.984811962, 0, 0.173624352)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2106.06812, 37.8239136, -11908.5205, 0.173624352, 0, -0.984811962, 0, 1, 0, 0.984811962, 0, 0.173624352)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2106.06812, 37.8239136, -11908.5205, 0.173624352, 0, -0.984811962, 0, 1, 0, 0.984811962, 0, 0.173624352)
-    end
-})
-
-TestTab:AddButton({
-    Name = "Sea of Treats 2",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.42046833, 24.7601948, -12147.958, -0.819156229, -1.24802213e-07, -0.57357043, -9.22958847e-08, 1, -8.57740758e-08, 0.57357043, -1.73241776e-08, -0.819156229)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.42046833, 24.7601948, -12147.958, -0.819156229, -1.24802213e-07, -0.57357043, -9.22958847e-08, 1, -8.57740758e-08, 0.57357043, -1.73241776e-08, -0.819156229)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.42046833, 24.7601948, -12147.958, -0.819156229, -1.24802213e-07, -0.57357043, -9.22958847e-08, 1, -8.57740758e-08, 0.57357043, -1.73241776e-08, -0.819156229)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.42046833, 24.7601948, -12147.958, -0.819156229, -1.24802213e-07, -0.57357043, -9.22958847e-08, 1, -8.57740758e-08, 0.57357043, -1.73241776e-08, -0.819156229)
-    end
-})
-
-TestTab:AddButton({
-    Name = "Graveyard lsland",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9515.07324, 142.130615, 5537.58398, 1, 3.71000688e-08, -1.55603788e-13, -3.71000688e-08, 1, -7.87107055e-08, 1.52683611e-13, 7.87107055e-08, 1)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9515.07324, 142.130615, 5537.58398, 1, 3.71000688e-08, -1.55603788e-13, -3.71000688e-08, 1, -7.87107055e-08, 1.52683611e-13, 7.87107055e-08, 1)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9515.07324, 142.130615, 5537.58398, 1, 3.71000688e-08, -1.55603788e-13, -3.71000688e-08, 1, -7.87107055e-08, 1.52683611e-13, 7.87107055e-08, 1)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9515.07324, 142.130615, 5537.58398, 1, 3.71000688e-08, -1.55603788e-13, -3.71000688e-08, 1, -7.87107055e-08, 1.52683611e-13, 7.87107055e-08, 1)
-    end
-})
-TestTab:AddButton({
-    Name = "PineApple Village",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11336.1221, 331.748993, -10364.5312, -0.258864403, 0, -0.965913653, 0, 1, 0, 0.965913653, 0, -0.258864403)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11336.1221, 331.748993, -10364.5312, -0.258864403, 0, -0.965913653, 0, 1, 0, 0.965913653, 0, -0.258864403)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11336.1221, 331.748993, -10364.5312, -0.258864403, 0, -0.965913653, 0, 1, 0, 0.965913653, 0, -0.258864403)
-wait()
-game.Players.LocalPlayer.Character.Humanoid.Health = -10000
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11336.1221, 331.748993, -10364.5312, -0.258864403, 0, -0.965913653, 0, 1, 0, 0.965913653, 0, -0.258864403)
-    end
-})
-
-local TestTab = Page:CreateSection({
-    Name = "Fast Teleport", -- ชื่อ
-    Side = "Right" -- ตำแหน่ง Left/Right
-})
-TestTab:AddButton({
-    Name = "Castle on the Sea",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5071.70459, 314.858765, -3153.71338, -0.42698583, -8.66396164e-08, 0.904258311, -6.9941164e-09, 1, 9.25103265e-08, -0.904258311, 3.31761107e-08, -0.42698583)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5071.70459, 314.858765, -3153.71338, -0.42698583, -8.66396164e-08, 0.904258311, -6.9941164e-09, 1, 9.25103265e-08, -0.904258311, 3.31761107e-08, -0.42698583)
-wait()
-local TweenService = game:GetService("TweenService")
-local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
-{CFrame = CFrame.new(-4974.32617, 314.858765, -3018.80908, -0.340684235, 5.71576875e-09, 0.940177798, 2.53919352e-09, 1, -5.15934939e-09, -0.940177798, 6.2958444e-10, -0.340684235)}):Play()
-    end
-})
-
-TestTab:AddButton({
-    Name = "Mansion",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12481.6416, 375.257721, -7562.2373, -0.318771273, 8.82788864e-09, 0.94783169, -1.0103485e-07, 1, -4.32934435e-08, -0.94783169, -1.09564738e-07, -0.318771273)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12481.6416, 375.257721, -7562.2373, -0.318771273, 8.82788864e-09, 0.94783169, -1.0103485e-07, 1, -4.32934435e-08, -0.94783169, -1.09564738e-07, -0.318771273)
-wait()
-local TweenService = game:GetService("TweenService")
-local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
-{CFrame = CFrame.new(-12549.4941, 337.511536, -7571.7959, 0.999999583, 5.17969738e-08, -0.000910699251, -5.17395016e-08, 1, 6.3130102e-08, 0.000910699251, -6.30829575e-08, 0.999999583)}):Play()
-    end
-})
-TestTab:AddButton({
-    Name = "Hydra lsland",
-    Callback = function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5757.41992, 610.767273, -280.98468, 0.999590099, -3.02014591e-08, 0.0286297835, 3.06433101e-08, 1, -1.4994546e-08, -0.0286297835, 1.58657105e-08, 0.999590099)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5757.41992, 610.767273, -280.98468, 0.999590099, -3.02014591e-08, 0.0286297835, 3.06433101e-08, 1, -1.4994546e-08, -0.0286297835, 1.58657105e-08, 0.999590099)
-wait()
-local TweenService = game:GetService("TweenService")
-local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
-{CFrame = CFrame.new(5437.8208, 601.926514, 195.486481, 0.0144358901, 4.45881447e-08, 0.999895811, -5.56348123e-09, 1, -4.45124684e-08, -0.999895811, -4.92032415e-09, 0.0144358901)}):Play()
-    end
-})
-
 TestTab:AddToggle({
-    Name = "Gaint Tree",
+    Name = "Port Town",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(Gaint)
-_G.Gaints = Gaint
+    Callback = function(PortT)
+_G.PortTs = PortT
+
+            if _G.PortTs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
 
     spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.Gaints then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28609.1387, 14896.5332, 105.508553, 0.182547435, 9.95097338e-09, -0.983197033, 1.19367636e-08, 1, 1.23373018e-08, 0.983197033, -1.3988334e-08, 0.182547435)
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.PortTs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
 
-local A_1 = "RaceV4Progress"
-local A_2 = "Check"
-local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
-Event:InvokeServer(A_1, A_2)
-
-local A_1 = "RaceV4Progress"
-local A_2 = "TeleportBack"
-local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
-Event:InvokeServer(A_1, A_2)
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-288.493988, 29.7560635, 5395.40381, 0.961512685, 0, -0.274760455, 0, 1, 0, 0.274760455, 0, 0.961512685))
             end
-        end)
        end)
     end)
     end
 })
-
 TestTab:AddToggle({
-    Name = "Temple of Time",
+    Name = "Hydra Island",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(Temple)
-_G.Temples = Temple
+    Callback = function(HydraI)
+_G.HydraIs = HydraI
+
+            if _G.HydraIs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
 
     spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.Temples then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2954.4458, 2282.09863, -7217.86279, 0.062969014, 1.80892457e-08, -0.998015463, 2.5086683e-08, 1, 1.97080396e-08, 0.998015463, -2.62778936e-08, 0.062969014)
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.HydraIs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
 
-local A_1 = "RaceV4Progress"
-local A_2 = "Check"
-local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
-Event:InvokeServer(A_1, A_2)
-
-local A_1 = "RaceV4Progress"
-local A_2 = "Teleport"
-local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
-Event:InvokeServer(A_1, A_2)
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/10000000,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(5745.24512, 668.373352, -286.337982, -0.998025358, -2.72652834e-08, -0.0628123358, -2.28804904e-08, 1, -7.05271361e-08, 0.0628123358, -6.89506905e-08, -0.998025358))
             end
-        end)
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Gaint Tree",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(GaintT)
+_G.GaintTs = GaintT
+
+            if _G.GaintTs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.GaintTs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(2282.86597, 26.2308102, -6395.36426, -0.8517133, -5.39874527e-08, 0.524008095, -3.72862665e-08, 1, 4.24234727e-08, -0.524008095, 1.65943295e-08, -0.8517133))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "PineApple Village",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(PineAppleV)
+_G.PineAppleVs = PineAppleV
+
+            if _G.PineAppleVs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.PineAppleVs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-11343.1221, 332.066467, -10356.71, 0.999236703, 2.54610075e-08, -0.0390635468, -2.66470135e-08, 1, -2.98403044e-08, 0.0390635468, 3.08584553e-08, 0.999236703))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Mansion",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Mansion)
+_G.Mansions = Mansion
+
+            if _G.Mansions == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.Mansions then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/1000000,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-12479.7793, 375.257721, -7568.26758, 0.0187881123, 1.06181455e-08, 0.999823511, -8.81541524e-08, 1, -8.96347707e-09, -0.999823511, -8.79701858e-08, 0.0187881123))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Castle on the Sea",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(CastleontheSea)
+_G.CastleontheSeas = CastleontheSea
+
+            if _G.CastleontheSeas == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.CastleontheSeas then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/1000000,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-5068.89648, 314.858826, -3150.7002, 0.404435784, -1.02192708e-08, -0.914566398, 4.87533427e-08, 1, 1.03856044e-08, 0.914566398, -4.8788479e-08, 0.404435784))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Haunted Castle",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(HauntedC)
+_G.HauntedCs = HauntedC
+
+            if _G.HauntedCs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.HauntedCs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-9515.07324, 142.448074, 5537.58398, 1, -1.01637365e-08, 3.37609511e-14, 1.01637365e-08, 1, -2.80740906e-08, -3.34756128e-14, 2.80740906e-08, 1))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Peaut Island",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(PeautI)
+_G.PeautIs = PeautI
+
+            if _G.PeautIs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.PeautIs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-2061.48291, 38.4473686, -10203.9746, -0.696227908, -3.38596919e-08, 0.717820823, -3.61973349e-08, 1, 1.20616415e-08, -0.717820823, -1.75855508e-08, -0.696227908))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Ice Creame Island",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(IceCreameIsland)
+_G.IceCreameIslands = IceCreameIsland
+
+            if _G.IceCreameIslands == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.IceCreameIslands then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-840.596497, 66.162735, -10877.8076, -0.521273971, 3.5137294e-08, 0.853389382, 1.18881246e-07, 1, 3.14421591e-08, -0.853389382, 1.17841971e-07, -0.521273971))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Loaf Island",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Loaf)
+_G.Loafs = Loaf
+
+            if _G.Loafs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.Loafs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-1951.80298, 38.1415367, -11965.8008, 0.29808107, -3.05090886e-08, 0.954540551, 8.85637697e-09, 1, 2.91964231e-08, -0.954540551, -2.49130327e-10, 0.29808107))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Chocolate Island",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(ChocolateI)
+_G.ChocolateIs = ChocolateI
+
+            if _G.ChocolateIs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.ChocolateIs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(113.492058, 25.0776882, -12068.958, -0.891273439, -2.61896513e-08, 0.453466326, -1.48792942e-08, 1, 2.85095769e-08, -0.453466326, 1.86625702e-08, -0.891273439))
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddToggle({
+    Name = "Christmas Island",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(ChristmasI)
+_G.ChristmasIs = ChristmasI
+
+            if _G.ChristmasIs == false then
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
+            end
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.ChristmasIs then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-1047.08081, 15.1387281, -14163.5576, -0.992884219, 3.57781644e-08, -0.119083822, 3.53745335e-08, 1, 5.50326629e-09, 0.119083822, 1.25157129e-09, -0.992884219))
+            end
        end)
     end)
     end
