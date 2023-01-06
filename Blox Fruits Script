@@ -6366,18 +6366,6 @@ _G.ChestsFasts = ChestsFast
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.ChestsFasts then
-_G.plr = game:GetService("Players").LocalPlayer.Character
-_G.plr.LowerTorso.Root:Remove()
-_G.plr.UpperTorso.Waist:Remove()
-            end
-        end)
-       end)
-    end)
-
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.ChestsFasts then
 function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/10000000000,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Chest1.CFrame*CFrame.new(0,1,0))
 
 function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/10000000000,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Chest2.CFrame*CFrame.new(0,1,0))
