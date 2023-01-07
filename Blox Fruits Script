@@ -1,3 +1,6 @@
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("<Color=Green>King Hub On Top<Color=/> <Color=Yellow>Script Blox Fruits<Color=/> <Color=Black>Nice<Color=/> <Color=Red>:)<Color=/>"):Display()
+wait()
 if game.CoreGui:FindFirstChild("KING HUB Ui") then
     game.CoreGui:FindFirstChild("KING HUB Ui"):Destroy()
 end
@@ -10011,7 +10014,8 @@ local TestTab = Page:CreateSection({
 TestTab:AddButton({
     Name = "Unlook Mink V4",
     Callback = function(Dodgev4)
-require(game:GetService("ReplicatedStorage").Notification).new("Mink V4 Unlocked!"):Display();
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("<Color=Black>Mink V4 Unlocked!<Color=/>"):Display()
 wait()
 setthreadcontext(5)
 
@@ -10077,7 +10081,8 @@ end
 TestTab:AddButton({
     Name = "Unlook Skypeian V4",
     Callback = function()
-require(game:GetService("ReplicatedStorage").Notification).new("Skypeian V4 Unlocked!"):Display();
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("<Color=Black>Skypeian V4 Unlocked!<Color=/>"):Display()
 wait()
 setthreadcontext(5)
 
