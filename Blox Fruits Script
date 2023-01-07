@@ -6983,6 +6983,47 @@ local TestTab = Page:CreateSection({
     Side = "Left" -- ตำแหน่ง Left/Right
 })
 
+TestTab:AddSlider({
+	Name = "Slider",
+	Value = 70, -- ค่าที่ให้เลือก
+	Min = 70, -- น้อยสุด
+	Max = 120, -- มากสุด
+	Format = "Field of View : %s%%",
+	Callback = function(FieldOfViewse)
+    FieldOfViewe = FieldOfViewse
+	end
+})
+
+TestTab:AddToggle({
+    Name = "Field of View",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(FieldOfView)
+        if FieldOfView then
+_G.FieldOfViewee = true
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FieldOfViewee then
+game:GetService("Workspace").Camera.FieldOfView = FieldOfViewe
+        end
+    end)
+end)
+        else
+_G.FieldOfViewee = false
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FieldOfViewee then
+game:GetService("Workspace").Camera.FieldOfView = FieldOfViewe
+        end
+    end)
+end)
+wait()
+game:GetService("Workspace").Camera.FieldOfView = 70
+        end
+    end
+})
+
 TestTab:AddToggle({
     Name = "Auto Click",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
