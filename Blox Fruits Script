@@ -6030,7 +6030,6 @@ local TestTab = Page:CreateSection({
     Side = "Left" -- ตำแหน่ง Left/Right
 })
 if game.PlaceId == 2753915549 then --- Blox Fruits 1
-
 TestTab:AddToggle({
     Name = "Auto Farm Level",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
@@ -6039,9 +6038,317 @@ TestTab:AddToggle({
     function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
 {CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
 
+function CheckLevel()
+    local MyLevel = game.Players.LocalPlayer.Data.Level.Value
+    if MyLevel == 1 or MyLevel <= 9 then
+        MON = "Bandit [Lv. 5]"
+        QuestZ = "BanditQuest1"
+        Numbert = 1
+        TPNOTQ = CFrame.new(1053.8064, 27.0282993, 1563.42114, 0.928512454, -1.4613895e-08, -0.371301234, 1.1523964e-08, 1, -1.05406368e-08, 0.371301234, 5.5082503e-09, 0.928512454)
+        SPEED = 300
+    elseif MyLevel == 10 or MyLevel <= 14 then
+        MON = "Monkey [Lv. 14]"
+        QuestZ = "JungleQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-1534.45996, 36.2418938, 48.765007, -0.376411319, -3.46583207e-08, -0.926452637, -6.49574901e-08, 1, -1.10179244e-08, 0.926452637, 5.60327678e-08, -0.376411319)
+        SPEED = 300
+    elseif MyLevel == 15 or MyLevel <= 29 then
+        MON = "Gorilla [Lv. 20]"
+        QuestZ = "JungleQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-1267.50256, 66.2032394, -535.608093, -0.869705498, 7.72471012e-08, -0.493570983, 1.02403355e-07, 1, -2.39350832e-08, 0.493570983, -7.13597998e-08, -0.869705498)
+        SPEED = 300
+    elseif MyLevel == 30 or MyLevel <= 39 then
+        MON = "Pirate [Lv. 35]"
+        QuestZ = "BuggyQuest1"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-1135.53931, 12.6279287, 3953.73633, 0.242315978, 1.80215114e-08, 0.97019738, -1.35637785e-08, 1, -1.51874158e-08, -0.97019738, -9.47938883e-09, 0.242315978)
+        SPEED = 300
+    elseif MyLevel == 40 or MyLevel <= 59 then
+        MON = "Brute [Lv. 45]"
+        QuestZ = "BuggyQuest1"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-1134.06714, 93.5224609, 4315.87646, 0.99515456, 5.73447565e-08, -0.098322846, -6.27163317e-08, 1, -5.15413205e-08, 0.098322846, 5.74580312e-08, 0.99515456)
+        SPEED = 300
+    elseif MyLevel == 60 or MyLevel <= 74 then
+        MON = "Desert Bandit [Lv. 60]"
+        QuestZ = "DesertQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(1006.42682, 21.7851505, 4405.3623, -0.907638669, -1.79864514e-08, 0.4197523, 3.43495177e-10, 1, 4.35929017e-08, -0.4197523, 3.97107875e-08, -0.907638669)
+        SPEED = 300
+    elseif MyLevel == 75 or MyLevel <= 89 then
+        MON = "Desert Officer [Lv. 70]"
+        QuestZ = "DesertQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(1657.68384, 9.92569923, 4451.90771, 0.776067972, 5.80641064e-08, 0.630649328, -2.3792742e-08, 1, -6.27913508e-08, -0.630649328, 3.37254775e-08, 0.776067972)
+        SPEED = 300
+    elseif MyLevel == 90 or MyLevel <= 99 then
+        MON = "Snow Bandit [Lv. 90]"
+        QuestZ = "SnowQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(1421.26685, 119.64595, -1413.18115, -0.280426621, 6.57605659e-09, -0.959875464, 1.04731681e-08, 1, 3.79122245e-09, 0.959875464, -8.98977781e-09, -0.280426621)
+        SPEED = 300
+    elseif MyLevel == 100 or MyLevel <= 119 then
+        MON = "Snowman [Lv. 100]"
+        QuestZ = "SnowQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(1222.20776, 138.037628, -1489.75415, -0.236577913, 9.52122292e-08, 0.971612513, -3.32010757e-08, 1, -1.06078161e-07, -0.971612513, -5.73543311e-08, -0.236577913)
+        SPEED = 300
+    elseif MyLevel == 120 or MyLevel <= 149 then
+        MON = "Chief Petty Officer [Lv. 120]"
+        QuestZ = "MarineQuest2"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-4741.16846, 54.8254013, 4473.41504, -0.930544615, -3.90726989e-08, 0.366178513, -4.13143475e-08, 1, 1.71461789e-09, -0.366178513, -1.35328975e-08, -0.930544615)
+        SPEED = 300
+    elseif MyLevel == 150 or MyLevel <= 174 then
+        MON = "Sky Bandit [Lv. 150]"
+        QuestZ = "SkyQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-4956.71387, 295.769989, -2896.45532, -0.988519073, -2.10014512e-08, -0.15109615, -2.06393356e-08, 1, -3.96486e-09, 0.15109615, -8.00815636e-10, -0.988519073)
+        SPEED = 300
+    elseif MyLevel == 175 or MyLevel <= 189 then
+        MON = "Dark Master [Lv. 175]"
+        QuestZ = "SkyQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-5155.26904, 438.216156, -2266.68408, 0.168845922, 3.55234309e-09, 0.985642433, -2.14850115e-09, 1, -3.23603899e-09, -0.985642433, -1.5712619e-09, 0.168845922)
+        SPEED = 300
+    elseif MyLevel == 190 or MyLevel <= 209 then
+        MON = "Prisoner [Lv. 190]"
+        QuestZ = "PrisonerQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(5293.58643, 1.65280402, 435.694916, 0.996610284, 1.17319638e-08, 0.0822676942, -1.8747027e-08, 1, 8.44987369e-08, -0.0822676942, -8.57545857e-08, 0.996610284)
+        SPEED = 300
+    elseif MyLevel == 210 or MyLevel <= 249 then
+        MON = "Dangerous Prisoner [Lv. 210]"
+        QuestZ = "PrisonerQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(5545.86426, 15.6347351, 860.663086, -0.331616998, 2.57844643e-08, -0.943414092, 3.00589997e-09, 1, 2.62744191e-08, 0.943414092, 5.87723559e-09, -0.331616998)
+        SPEED = 300
+    elseif MyLevel == 250 or MyLevel <= 274 then
+        MON = "Toga Warrior [Lv. 250]"
+        QuestZ = "ColosseumQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-1773.08398, 40.544754, -2741.86011, 0.735669613, -1.11341706e-07, 0.677340567, 8.37757739e-08, 1, 7.33905736e-08, -0.677340567, 2.75351475e-09, 0.735669613)
+        SPEED = 300
+    elseif MyLevel == 275 or MyLevel <= 299 then
+        MON = "Gladiator [Lv. 275]"
+        QuestZ = "ColosseumQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-1426.67358, 7.46834803, -3171.31323, -0.68891257, -1.98115639e-08, -0.724844456, -1.94458636e-08, 1, -8.85026097e-09, 0.724844456, 7.99817101e-09, -0.68891257)
+        SPEED = 300
+    elseif MyLevel == 300 or MyLevel <= 324 then
+        MON = "Military Soldier [Lv. 300]"
+        QuestZ = "MagmaQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-5527.35791, 60.1229706, 8306.95996, -0.828962982, -5.06838305e-08, -0.559303463, -5.16566239e-08, 1, -1.40574894e-08, 0.559303463, 1.72385892e-08, -0.828962982)
+        SPEED = 300
+    elseif MyLevel == 325 or MyLevel <= 374 then
+        MON = "Military Spy [Lv. 325]"
+        QuestZ = "MagmaQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-5805.59326, 99.5291595, 8777.9541, 0.337670237, -7.9171425e-10, 0.941264451, -1.86274857e-10, 1, 9.07942221e-10, -0.941264451, -4.81918949e-10, 0.337670237)
+        SPEED = 300
+    elseif MyLevel == 375 or MyLevel <= 399 then
+        MON = "Fishman Warrior [Lv. 375]"
+        QuestZ = "FishmanQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(61142.6953, 2.92177081, 1771.35828, 0.9247967, 3.13230544e-08, 0.380461663, -9.13012287e-12, 1, -8.2306876e-08, -0.380461663, 7.61136576e-08, 0.9247967)
+        SPEED = 999999
+    elseif MyLevel == 400 or MyLevel <= 449 then
+        MON = "Fishman Commando [Lv. 400]"
+        QuestZ = "FishmanQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(61142.6953, 2.92177081, 1771.35828, 0.9247967, 3.13230544e-08, 0.380461663, -9.13012287e-12, 1, -8.2306876e-08, -0.380461663, 7.61136576e-08, 0.9247967)
+        SPEED = 999999
+    elseif MyLevel == 450 or MyLevel <= 474 then
+        MON = "God's Guard [Lv. 450]"
+        QuestZ = "SkyExp1Quest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-4626.30078, 849.928589, -1940.31067, -0.539501011, 5.75404036e-09, 0.841984987, 2.20427521e-09, 1, -5.42151213e-09, -0.841984987, -1.0689446e-09, -0.539501011)
+        SPEED = 300
+    elseif MyLevel == 475 or MyLevel <= 524 then
+        MON = "Shanda [Lv. 475]"
+        QuestZ = "SkyExp1Quest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-7757.11182, 5581.20996, -483.181396, -0.116238229, 6.99025478e-08, -0.993221343, -2.89310691e-08, 1, 7.37654702e-08, 0.993221343, 3.73093236e-08, -0.116238229)
+        SPEED = 300
+    elseif MyLevel == 525 or MyLevel <= 549 then
+        MON = "Royal Squad [Lv. 525]"
+        QuestZ = "SkyExp2Quest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-7632.42188, 5637.10645, -1408.14014, 0.804650009, -6.30856363e-08, 0.593749404, 3.62339421e-08, 1, 5.71453036e-08, -0.593749404, -2.4468088e-08, 0.804650009)
+        SPEED = 300
+    elseif MyLevel == 550 or MyLevel <= 624 then
+        MON = "Royal Soldier [Lv. 550]"
+        QuestZ = "SkyExp2Quest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-7859.83789, 5662.36914, -1705.50732, -0.100345157, 5.00105424e-09, 0.994952679, -3.87068546e-08, 1, -8.93017305e-09, -0.994952679, -3.94075919e-08, -0.100345157)
+        SPEED = 300
+    elseif MyLevel == 625 or MyLevel <= 649 then
+        MON = "Galley Pirate [Lv. 625]"
+        QuestZ = "FountainQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(5509.6001, 104.086807, 4079.19849, 0.882726967, 1.59021987e-08, 0.469886273, -1.43286503e-08, 1, -6.92489532e-09, -0.469886273, -6.20044349e-10, 0.882726967)
+        SPEED = 300
+    elseif MyLevel == 650 or MyLevel <= 1000000 then
+        MON = "Galley Captain [Lv. 650]"
+        QuestZ = "FountainQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(5849.92578, 86.7736511, 4832.01807, 0.792082906, -4.82348455e-08, 0.610413551, 3.08730712e-08, 1, 3.89585324e-08, -0.610413551, -1.20130466e-08, 0.792082906)
+        SPEED = 300
+    end
+end
 
 _G.AutoLV = Kings --true/false
-loadstring(game:HttpGet(('https://pastebin.com/raw/cFQvDXfU')))()
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies[MON].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/SPEED,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.ReplicatedStorage[MON].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/SPEED,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(TPNOTQ)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+
+local A_1 = "StartQuest"
+local A_2 = QuestZ
+local A_3 = Numbert
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1, A_2, A_3)
+
+                    end
+
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+            end
+        end)
+    end)
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
+            end
+        end)
+    end)
+    
+local plr = game.Players.LocalPlayer
+
+local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
+local CbFw2 = CbFw[2]
+
+function GetCurrentBlade() 
+    local p13 = CbFw2.activeController
+    local ret = p13.blades[1]
+    if not ret then return end
+    while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
+    return ret
+end
+function AttackNoCD() 
+    local AC = CbFw2.activeController
+    for i = 1, 1 do 
+        local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
+            plr.Character,
+            {plr.Character.HumanoidRootPart},
+            60
+        )
+        local cac = {}
+        local hash = {}
+        for k, v in pairs(bladehit) do
+            if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+                table.insert(cac, v.Parent.HumanoidRootPart)
+                hash[v.Parent] = true
+            end
+        end
+        bladehit = cac
+        if #bladehit > 0 then
+            local u8 = debug.getupvalue(AC.attack, 5)
+            local u9 = debug.getupvalue(AC.attack, 6)
+            local u7 = debug.getupvalue(AC.attack, 4)
+            local u10 = debug.getupvalue(AC.attack, 7)
+            local u12 = (u8 * 798405 + u7 * 727595) % u9
+            local u13 = u7 * 798405
+            (function()
+                u12 = (u12 * u9 + u13) % 1099511627776
+                u8 = math.floor(u12 / u9)
+                u7 = u12 - u8 * u9
+            end)()
+            u10 = u10 + 1
+            debug.setupvalue(AC.attack, 5, u8)
+            debug.setupvalue(AC.attack, 6, u9)
+            debug.setupvalue(AC.attack, 4, u7)
+            debug.setupvalue(AC.attack, 7, u10)
+            pcall(function()
+                for k, v in pairs(AC.animator.anims.basic) do
+                    v:Play()
+                end                  
+            end)
+            if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
+                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
+                game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
+                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
+            end
+        end
+    end
+end
+if _G.AutoLV == true then 
+	cac=task.wait
+else
+	cac=wait
+end
+
+while _G.AutoLV do wait(0.175)
+    pcall(function()
+	AttackNoCD()
+    end)
+end
     end
 })
 
@@ -6056,9 +6363,293 @@ TestTab:AddToggle({
     function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
 {CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
 
+function CheckLevel()
+    local MyLevel = game.Players.LocalPlayer.Data.Level.Value
+    if MyLevel == 700 or MyLevel <= 724 then
+        MON = "Raider [Lv. 700]"
+        QuestZ = "Area1Quest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-785.186157, 49.1547546, 2170.00513, -0.969538808, 1.05384723e-08, 0.244937703, 2.23450378e-08, 1, 4.54234268e-08, -0.244937703, 4.951292e-08, -0.969538808)
+        SPEED = 300
+    elseif MyLevel == 725 or MyLevel <= 774 then
+        MON = "Mercenary [Lv. 725]"
+        QuestZ = "Area1Quest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-959.091614, 80.6123505, 1690.93433, 0.992822945, 6.89338198e-10, 0.119593285, 2.21526811e-10, 1, -7.60306129e-09, -0.119593285, 7.57498686e-09, 0.992822945)
+        SPEED = 300
+    elseif MyLevel == 775 or MyLevel <= 799 then
+        MON = "Swan Pirate [Lv. 775]"
+        QuestZ = "Area2Quest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(840.501343, 121.607971, 1240.17395, -0.206274137, -9.77320713e-09, -0.978494227, -1.01027524e-07, 1, 1.13093757e-08, 0.978494227, 1.0118768e-07, -0.206274137)
+        SPEED = 300
+    elseif MyLevel == 800 or MyLevel <= 874 then
+        MON = "Factory Staff [Lv. 800]"
+        QuestZ = "Area2Quest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(732.810303, 118.671463, -32.0496254, -0.973876834, 1.10893277e-08, -0.227077007, 3.16706767e-08, 1, -8.69925643e-08, 0.227077007, -9.19117227e-08, -0.973876834)
+        SPEED = 300
+    elseif MyLevel == 875 or MyLevel <= 899 then
+        MON = "Marine Lieutenant [Lv. 875]"
+        QuestZ = "MarineQuest3"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-2744.25562, 72.9919205, -2986.52197, 0.999991536, -3.91924324e-08, -0.00410910323, 3.90074426e-08, 1, -4.50995365e-08, 0.00410910323, 4.49388686e-08, 0.999991536)
+        SPEED = 300
+    elseif MyLevel == 900 or MyLevel <= 949 then
+        MON = "Marine Captain [Lv. 900]"
+        QuestZ = "MarineQuest3"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-1849.05078, 90.056778, -3203.9375, -0.523038268, 1.01889324e-08, 0.852309227, 1.01166755e-08, 1, -5.74618264e-09, -0.852309227, 5.61706193e-09, -0.523038268)
+        SPEED = 300
+    elseif MyLevel == 950 or MyLevel <= 974 then
+        MON = "Zombie [Lv. 950]"
+        QuestZ = "ZombieQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-5662.23926, 78.3898773, -927.399902, -0.976576388, 3.20721298e-08, -0.215170875, 3.77727254e-08, 1, -2.2381391e-08, 0.215170875, -2.99847294e-08, -0.976576388)
+        SPEED = 300
+    elseif MyLevel == 975 or MyLevel <= 999 then
+        MON = "Vampire [Lv. 975"
+        QuestZ = "ZombieQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-6035.01074, 6.42850399, -1297.17725, 0.95030266, 1.94785805e-08, -0.311327547, -2.51729233e-08, 1, -1.42721541e-08, 0.311327547, 2.13998916e-08, 0.95030266)
+        SPEED = 300
+    elseif MyLevel == 1000 or MyLevel <= 1049 then
+        MON = "Snow Trooper [Lv. 1000]"
+        QuestZ = "SnowMountainQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(525.968811, 433.268127, -5565.4585, -0.237976924, 5.20208232e-09, -0.9712708, -1.03076152e-08, 1, 7.88148569e-09, 0.9712708, 1.18870975e-08, -0.237976924)
+        SPEED = 300
+    elseif MyLevel == 1050 or MyLevel <= 1099 then
+        MON = "Winter Warrior [Lv. 1050]"
+        QuestZ = "SnowMountainQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(1197.62012, 458.880859, -5342.23584, -0.35024333, -2.80437327e-08, -0.93665874, -4.28643787e-09, 1, -2.83373591e-08, 0.93665874, -5.91004179e-09, -0.35024333)
+        SPEED = 300
+    elseif MyLevel == 1100 or MyLevel <= 1124 then
+        MON = "Lab Subordinate [Lv. 1100]"
+        QuestZ = "IceSideQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-5639.14404, 48.3101463, -4608.81543, -0.127248287, 5.35702904e-09, 0.99187088, -5.97321659e-09, 1, -6.16724494e-09, -0.99187088, -6.70943123e-09, -0.127248287)
+        SPEED = 300
+    elseif MyLevel == 1125 or MyLevel <= 1174 then
+        MON = "Horned Warrior [Lv. 1125]"
+        QuestZ = "IceSideQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-6212.22412, 38.6415405, -5988.71533, -0.768810034, -3.62736969e-08, -0.639477253, 1.26055264e-08, 1, -7.18789508e-08, 0.639477253, -6.33222044e-08, -0.768810034)
+        SPEED = 300
+    elseif MyLevel == 1175 or MyLevel <= 1199 then
+        MON = "Magma Ninja [Lv. 1175]"
+        QuestZ = "FireSideQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-5581.33203, 35.6549301, -5897.69873, -0.874358296, -9.19454024e-08, -0.485280931, -1.10109376e-07, 1, 8.92192809e-09, 0.485280931, 6.12349425e-08, -0.874358296)
+        SPEED = 300
+    elseif MyLevel == 1200 or MyLevel <= 1249 then
+        MON = "Lava Pirate [Lv. 1200]"
+        QuestZ = "FireSideQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-5251.20312, 54.7244453, -4769.1748, 0.996270478, 2.00841832e-09, 0.0862849131, -2.1212192e-09, 1, 1.21562183e-09, -0.0862849131, -1.39411738e-09, 0.996270478)
+        SPEED = 300
+    elseif MyLevel == 1250 or MyLevel <= 1274 then
+        MON = "Ship Deckhand [Lv. 1250]"
+        QuestZ = "ShipQuest1"
+        Numbert = 1
+        TPNOTQ = CFrame.new(931.350342, 125.082909, 32857.7305, -0.986403823, -3.87652044e-09, -0.164339408, -1.16790755e-09, 1, -1.65784453e-08, 0.164339408, -1.6161108e-08, -0.986403823)
+        SPEED = 9999999
+    elseif MyLevel == 1275 or MyLevel <= 1299 then
+        MON = "Ship Engineer [Lv. 1275]"
+        QuestZ = "ShipQuest1"
+        Numbert = 2
+        TPNOTQ = CFrame.new(931.350342, 125.082909, 32857.7305, -0.986403823, -3.87652044e-09, -0.164339408, -1.16790755e-09, 1, -1.65784453e-08, 0.164339408, -1.6161108e-08, -0.986403823)
+        SPEED = 9999999
+    elseif MyLevel == 1300 or MyLevel <= 1324 then
+        MON = "Ship Steward [Lv. 1300]"
+        QuestZ = "ShipQuest2"
+        Numbert = 1
+        TPNOTQ = CFrame.new(931.350342, 125.082909, 32857.7305, -0.986403823, -3.87652044e-09, -0.164339408, -1.16790755e-09, 1, -1.65784453e-08, 0.164339408, -1.6161108e-08, -0.986403823)
+        SPEED = 9999999
+    elseif MyLevel == 1325 or MyLevel <= 1349 then
+        MON = "Ship Officer [Lv. 1325]"
+        QuestZ = "ShipQuest2"
+        Numbert = 2
+        TPNOTQ = CFrame.new(931.350342, 125.082909, 32857.7305, -0.986403823, -3.87652044e-09, -0.164339408, -1.16790755e-09, 1, -1.65784453e-08, 0.164339408, -1.6161108e-08, -0.986403823)
+        SPEED = 9999999
+    elseif MyLevel == 1350 or MyLevel <= 1374 then
+        MON = "Arctic Warrior [Lv. 1350]"
+        QuestZ = "FrostQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(5690.67969, 28.3924389, -6387.75195, 0.771078646, -4.27031388e-09, -0.63673991, -8.10083822e-09, 1, -1.65164717e-08, 0.63673991, 1.78936261e-08, 0.771078646)
+        SPEED = 300
+    elseif MyLevel == 1375 or MyLevel <= 1424 then
+        MON = "Snow lurker [Lv. 1375]"
+        QuestZ = "FrostQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(5690.67969, 28.3924389, -6387.75195, 0.771078646, -4.27031388e-09, -0.63673991, -8.10083822e-09, 1, -1.65164717e-08, 0.63673991, 1.78936261e-08, 0.771078646)
+        SPEED = 300
+    elseif MyLevel == 1425 or MyLevel <= 1449 then
+        MON = "Sea Soldier [Lv. 1425]"
+        QuestZ = "ForgottenQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-3233.18335, 62.7911797, -9730.64941, -0.36358425, -9.99767451e-08, 0.931561291, -7.6830716e-08, 1, 7.73350095e-08, -0.931561291, -4.34547296e-08, -0.36358425)
+        SPEED = 300
+    elseif MyLevel == 1450 or MyLevel <= 1000000 then
+        MON = "Water Fighter [Lv. 1450]"
+        QuestZ = "ForgottenQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-3351.56299, 283.237518, -10530.8418, -0.144012555, 7.05489143e-08, 0.989575863, -6.19223002e-08, 1, -8.03036002e-08, -0.989575863, -7.28415444e-08, -0.144012555)
+        SPEED = 300
+    end
+end
 
 _G.AutoLV = Kings --true/false
-loadstring(game:HttpGet(('https://pastebin.com/raw/ps0EFV1S')))()
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies[MON].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/SPEED,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.ReplicatedStorage[MON].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/SPEED,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(TPNOTQ)
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+
+local A_1 = "StartQuest"
+local A_2 = QuestZ
+local A_3 = Numbert
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1, A_2, A_3)
+
+                    end
+
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+            end
+        end)
+    end)
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
+            end
+        end)
+    end)
+
+local plr = game.Players.LocalPlayer
+
+local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
+local CbFw2 = CbFw[2]
+
+function GetCurrentBlade() 
+    local p13 = CbFw2.activeController
+    local ret = p13.blades[1]
+    if not ret then return end
+    while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
+    return ret
+end
+function AttackNoCD() 
+    local AC = CbFw2.activeController
+    for i = 1, 1 do 
+        local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
+            plr.Character,
+            {plr.Character.HumanoidRootPart},
+            60
+        )
+        local cac = {}
+        local hash = {}
+        for k, v in pairs(bladehit) do
+            if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+                table.insert(cac, v.Parent.HumanoidRootPart)
+                hash[v.Parent] = true
+            end
+        end
+        bladehit = cac
+        if #bladehit > 0 then
+            local u8 = debug.getupvalue(AC.attack, 5)
+            local u9 = debug.getupvalue(AC.attack, 6)
+            local u7 = debug.getupvalue(AC.attack, 4)
+            local u10 = debug.getupvalue(AC.attack, 7)
+            local u12 = (u8 * 798405 + u7 * 727595) % u9
+            local u13 = u7 * 798405
+            (function()
+                u12 = (u12 * u9 + u13) % 1099511627776
+                u8 = math.floor(u12 / u9)
+                u7 = u12 - u8 * u9
+            end)()
+            u10 = u10 + 1
+            debug.setupvalue(AC.attack, 5, u8)
+            debug.setupvalue(AC.attack, 6, u9)
+            debug.setupvalue(AC.attack, 4, u7)
+            debug.setupvalue(AC.attack, 7, u10)
+            pcall(function()
+                for k, v in pairs(AC.animator.anims.basic) do
+                    v:Play()
+                end                  
+            end)
+            if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
+                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
+                game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
+                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
+            end
+        end
+    end
+end
+if _G.AutoLV == true then 
+	cac=task.wait
+else
+	cac=wait
+end
+
+while _G.AutoLV do wait(0.175)
+    pcall(function()
+	AttackNoCD()
+    end)
+end
     end
 })
 
@@ -6069,14 +6660,345 @@ TestTab:AddToggle({
     Name = "Auto Farm Level",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Kings)
-
-
     function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
 {CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
 
+function CheckLevel()
+    local MyLevel = game.Players.LocalPlayer.Data.Level.Value
+    if MyLevel == 1500 or MyLevel <= 1524 then
+        MON = "Pirate Millionaire [Lv. 1500]"
+        QuestZ = "PiratePortQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-77.2825851, 64.1752167, 5660.39062, -0.107666224, -6.7083846e-08, -0.994187117, -6.87229331e-08, 1, -6.00336776e-08, 0.994187117, 6.18598506e-08, -0.107666224)
+        SPEED = 300
+    elseif MyLevel == 1525 or MyLevel <= 1624 then
+        MON = "Pistol Billionaire [Lv. 1525]"
+        QuestZ = "PiratePortQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-176.837311, 105.643135, 6027.62646, 0.946359634, 5.71589709e-08, -0.32311514, -6.96465818e-08, 1, -2.70855249e-08, 0.32311514, 4.81365134e-08, 0.946359634)
+        SPEED = 300
+    elseif MyLevel == 1625 or MyLevel <= 1649 then
+        MON = "Female Islander [Lv. 1625]"
+        QuestZ = "AmazonQuest2"
+        Numbert = 1
+        TPNOTQ = CFrame.new(5701.86768, 825.252808, 1016.10516, 0.90253979, -2.56904382e-08, 0.430606484, 1.96846059e-08, 1, 1.84026447e-08, -0.430606484, -8.13280021e-09, 0.90253979)
+        SPEED = 300
+    elseif MyLevel == 1650 or MyLevel <= 1699 then
+        MON = "Giant Islander [Lv. 1650]"
+        QuestZ = "AmazonQuest2"
+        Numbert = 2
+        TPNOTQ = CFrame.new(5306.34326, 656.351807, -317.000397, -0.988197446, -5.93321623e-08, 0.153185397, -7.25739469e-08, 1, -8.08512155e-08, -0.153185397, -9.1014229e-08, -0.988197446)
+        SPEED = 300
+    elseif MyLevel == 1700 or MyLevel <= 1724 then
+        MON = "Marine Commodore [Lv. 1700]"
+        QuestZ = "MarineTreeIsland"
+        Numbert = 1
+        TPNOTQ = CFrame.new(2374.25806, 122.004555, -7600.77344, -0.809062481, 4.53458036e-08, 0.5877226, 8.89976945e-08, 1, 4.53596556e-08, -0.5877226, 8.90047573e-08, -0.809062481)
+        SPEED = 300
+    elseif MyLevel == 1725 or MyLevel <= 1774 then
+        MON = "Marine Rear Admiral [Lv. 1725]"
+        QuestZ = "MarineTreeIsland"
+        Numbert = 2
+        TPNOTQ = CFrame.new(3644.93384, 160.54985, -6984.40674, -0.505946398, -2.25410837e-08, 0.862564921, 6.58786732e-08, 1, 6.477444e-08, -0.862564921, 8.95970302e-08, -0.505946398)
+        SPEED = 300
+    elseif MyLevel == 1775 or MyLevel <= 1799 then
+        MON = "Fishman Raider [Lv. 1775]"
+        QuestZ = "DeepForestIsland3"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-10288.5469, 384.220276, -8503.13867, -0.988222301, -3.70502207e-08, 0.15302515, -4.46394743e-08, 1, -4.61590837e-08, -0.15302515, -5.24463957e-08, -0.988222301)
+        SPEED = 300
+    elseif MyLevel == 1800 or MyLevel <= 1824 then
+        MON = "Fishman Captain [Lv. 1800]"
+        QuestZ = "DeepForestIsland3"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-11106.625, 375.429443, -8786.6875, -0.333115101, 1.25805464e-08, -0.942886174, 4.44367565e-08, 1, -2.35660291e-09, 0.942886174, -4.26838227e-08, -0.333115101)
+        SPEED = 300
+    elseif MyLevel == 1825 or MyLevel <= 1849 then
+        MON = "Forest Pirate [Lv. 1825]"
+        QuestZ = "DeepForestIsland"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-13458.2305, 412.261414, -7779.28564, 0.954175949, -8.67457217e-08, 0.299246162, 7.80567717e-08, 1, 4.09890966e-08, -0.299246162, -1.57526223e-08, 0.954175949)
+        SPEED = 300
+    elseif MyLevel == 1850 or MyLevel <= 1899 then
+        MON = "Mythological Pirate [Lv. 1850]"
+        QuestZ = "DeepForestIsland"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-13506.8975, 581.78656, -6986.47363, 0.2385066, -6.64147635e-08, 0.971140862, 3.2558038e-08, 1, 6.0392324e-08, -0.971140862, 1.72144716e-08, 0.2385066)
+        SPEED = 300
+    elseif MyLevel == 1900 or MyLevel <= 1924 then
+        MON = "Jungle Pirate [Lv. 1900]"
+        QuestZ = "DeepForestIsland2"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-11983.7256, 376.483612, -10455.7168, 0.987621427, -2.15688036e-08, 0.156856328, 6.37464925e-09, 1, 9.73697638e-08, -0.156856328, -9.51645589e-08, 0.987621427)
+        SPEED = 300
+    elseif MyLevel == 1925 or MyLevel <= 1974 then
+        MON = "Musketeer Pirate [Lv. 1925]"
+        QuestZ = "DeepForestIsland2"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-13334.4629, 446.577484, -9917.90039, -0.913328171, -6.76356748e-08, 0.407224387, -6.30538608e-08, 1, 2.46714382e-08, -0.407224387, -3.14394977e-09, -0.913328171)
+        SPEED = 300
+    elseif MyLevel == 1975 or MyLevel <= 1999 then
+        MON = "Reborn Skeleton [Lv. 1975]"
+        QuestZ = "HauntedQuest1"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-8762.80566, 166.278564, 6164.9209, 0.999366939, -1.56168009e-10, -0.0355770327, -2.3102241e-10, 1, -1.08790452e-08, 0.0355770327, 1.08803775e-08, 0.999366939)
+        SPEED = 300
+    elseif MyLevel == 2000 or MyLevel <= 2024 then
+        MON = "Living Zombie [Lv. 2000]"
+        QuestZ = "HauntedQuest1"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-10201.501, 138.652466, 5978.91553, -0.997128725, 8.45421653e-08, -0.0757250562, 8.20870483e-08, 1, 3.55339473e-08, 0.0757250562, 2.92158724e-08, -0.997128725)
+        SPEED = 300
+    elseif MyLevel == 2025 or MyLevel <= 2049 then
+        MON = "Demonic Soul [Lv. 2025]"
+        QuestZ = "HauntedQuest2"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-9511.95801, 172.130615, 6107.64551, -0.992562592, 1.6973706e-08, -0.121735565, 1.16611867e-08, 1, 4.43522623e-08, 0.121735565, 4.26028137e-08, -0.992562592)
+        SPEED = 300
+    elseif MyLevel == 2050 or MyLevel <= 2074 then
+        MON = "Posessed Mummy [Lv. 2050]"
+        QuestZ = "HauntedQuest2"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-9579.17188, 5.8183341, 6226.10596, 0.999807894, 8.19362285e-08, -0.0196001232, -8.06540754e-08, 1, 6.6206006e-08, 0.0196001232, -6.46124576e-08, 0.999807894)
+        SPEED = 300
+    elseif MyLevel == 2075 or MyLevel <= 2099 then
+        MON = "Peanut Scout [Lv. 2075]"
+        QuestZ = "NutsIslandQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-2070.60254, 80.9821014, -10123.3818, -0.845613837, -6.01885048e-08, -0.533795118, -8.59849507e-08, 1, 2.34576198e-08, 0.533795118, 6.5734433e-08, -0.845613837)
+        SPEED = 300
+    elseif MyLevel == 2100 or MyLevel <= 2124 then
+        MON = "Peanut President [Lv. 2100]"
+        QuestZ = "NutsIslandQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-2329.52686, 88.3188095, -10513.7998, 0.0968994498, 1.88367775e-08, -0.995294154, 5.4613416e-08, 1, 2.42428708e-08, 0.995294154, -5.67055345e-08, 0.0968994498)
+        SPEED = 300
+    elseif MyLevel == 2125 or MyLevel <= 2149 then
+        MON = "Ice Cream Chef [Lv. 2125]"
+        QuestZ = "IceCreamIslandQuest"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-877.740967, 118.271133, -11036.1719, -0.369470567, 9.16016916e-08, 0.929242432, 9.2256272e-08, 1, -6.18952711e-08, -0.929242432, 6.28599608e-08, -0.369470567)
+        SPEED = 300
+    elseif MyLevel == 2150 or MyLevel <= 2199 then
+        MON = "Ice Cream Commander [Lv. 2150]"
+        QuestZ = "IceCreamIslandQuest"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-545.874451, 108.469261, -11294.168, 0.912168324, 2.79148757e-08, -0.409815818, -1.6955056e-08, 1, 3.03770911e-08, 0.409815818, -2.07605719e-08, 0.912168324)
+        SPEED = 300
+    elseif MyLevel == 2200 or MyLevel <= 2224 then
+        MON = "Cookie Crafter [Lv. 2200]"
+        QuestZ = "CakeQuest1"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-2281.81616, 90.1753616, -12057.082, 0.412479192, 1.60554201e-08, 0.910966992, 1.2653449e-08, 1, -2.33539783e-08, -0.910966992, 2.11599058e-08, 0.412479192)
+        SPEED = 300
+    elseif MyLevel == 2225 or MyLevel <= 2249 then
+        MON = "Cake Guard [Lv. 2225]"
+        QuestZ = "CakeQuest1"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-1767.99451, 82.8186035, -12213.0352, 0.734197617, 5.83236393e-09, -0.678935826, -5.70951109e-09, 1, 2.4162139e-09, 0.678935826, 2.10241313e-09, 0.734197617)
+        SPEED = 300
+    elseif MyLevel == 2250 or MyLevel <= 2274 then
+        MON = "Baking Staff [Lv. 2250]"
+        QuestZ = "CakeQuest2"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-1888.2041, 77.7453384, -12998.2598, -0.939559221, -3.02776613e-08, -0.342386514, 6.43543085e-09, 1, -1.06091008e-07, 0.342386514, -1.01882186e-07, -0.939559221)
+        SPEED = 300
+    elseif MyLevel == 2275 or MyLevel <= 2299 then
+        MON = "Head Baker [Lv. 2275]"
+        QuestZ = "CakeQuest2"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-2311.40161, 105.851578, -12931.4639, -0.914363325, -2.48497289e-09, -0.404894739, 1.34819729e-08, 1, -3.6583323e-08, 0.404894739, -3.89092278e-08, -0.914363325)
+        SPEED = 300
+    elseif MyLevel == 2300 or MyLevel <= 2324 then
+        MON = "Cocoa Warrior [Lv. 2300]"
+        QuestZ = "ChocQuest1"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-30.6216412, 75.6770096, -12334.7959, -0.999986112, 2.83260402e-08, -0.00527012115, 2.83594517e-08, 1, -6.26507246e-09, 0.00527012115, -6.4144432e-09, -0.999986112)
+        SPEED = 300
+    elseif MyLevel == 2325 or MyLevel <= 2349 then
+        MON = "Chocolate Bar Battler [Lv. 2325]"
+        QuestZ = "ChocQuest1"
+        Numbert = 2
+        TPNOTQ = CFrame.new(714.462891, 71.1504974, -12595.1025, -0.902282834, -1.02723625e-07, 0.431144625, -9.02880615e-08, 1, 4.930655e-08, -0.431144625, 5.56123858e-09, -0.902282834)
+        SPEED = 300
+    elseif MyLevel == 2350 or MyLevel <= 2374 then
+        MON = "Sweet Thief [Lv. 2350]"
+        QuestZ = "ChocQuest2"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-0.725032866, 80.7832718, -12552.7852, 0.911149025, 3.06296002e-08, -0.41207698, -6.25036591e-08, 1, -6.38728892e-08, 0.41207698, 8.39540419e-08, 0.911149025)
+        SPEED = 300
+    elseif MyLevel == 2375 or MyLevel <= 2399 then
+        MON = "Candy Rebel [Lv. 2375]"
+        QuestZ = "ChocQuest2"
+        Numbert = 2
+        TPNOTQ = CFrame.new(56.8102112, 63.7038803, -12890.8076, -0.987961113, 6.71843807e-08, -0.154702395, 5.66418947e-08, 1, 7.25547338e-08, 0.154702395, 6.29186161e-08, -0.987961113)
+        SPEED = 300
+    elseif MyLevel == 2400 or MyLevel <= 2424 then
+        MON = "Candy Pirate [Lv. 2400]"
+        QuestZ = "CandyQuest1"
+        Numbert = 1
+        TPNOTQ = CFrame.new(-1338.56628, 16.9334393, -14738.8154, -0.806711018, -8.77189592e-08, -0.590946078, -5.73556243e-08, 1, -7.01409917e-08, 0.590946078, -2.2689429e-08, -0.806711018)
+        SPEED = 300
+    elseif MyLevel == 2425 or MyLevel <= 100000 then
+        MON = "Snow Demon [Lv. 2425]"
+        QuestZ = "CandyQuest1"
+        Numbert = 2
+        TPNOTQ = CFrame.new(-836.517395, 16.9334431, -14330.4922, 0.502086699, -2.54583341e-08, 0.864817262, 3.37130004e-08, 1, 9.8650732e-09, -0.864817262, 2.42024623e-08, 0.502086699)
+        SPEED = 300
+    end
+end
 
 _G.AutoLV = Kings --true/false
-loadstring(game:HttpGet("https://pastebin.com/raw/Da1gezRM"))()
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies[MON].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/SPEED,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game.ReplicatedStorage[MON].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/SPEED,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(TPNOTQ)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoLV then
+CheckLevel()
+
+                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+
+local A_1 = "StartQuest"
+local A_2 = QuestZ
+local A_3 = Numbert
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1, A_2, A_3)
+
+                    end
+
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+            end
+        end)
+    end)
+
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
+            end
+        end)
+    end)
+    
+local plr = game.Players.LocalPlayer
+
+local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
+local CbFw2 = CbFw[2]
+
+function GetCurrentBlade() 
+    local p13 = CbFw2.activeController
+    local ret = p13.blades[1]
+    if not ret then return end
+    while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
+    return ret
+end
+function AttackNoCD() 
+    local AC = CbFw2.activeController
+    for i = 1, 1 do 
+        local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
+            plr.Character,
+            {plr.Character.HumanoidRootPart},
+            60
+        )
+        local cac = {}
+        local hash = {}
+        for k, v in pairs(bladehit) do
+            if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+                table.insert(cac, v.Parent.HumanoidRootPart)
+                hash[v.Parent] = true
+            end
+        end
+        bladehit = cac
+        if #bladehit > 0 then
+            local u8 = debug.getupvalue(AC.attack, 5)
+            local u9 = debug.getupvalue(AC.attack, 6)
+            local u7 = debug.getupvalue(AC.attack, 4)
+            local u10 = debug.getupvalue(AC.attack, 7)
+            local u12 = (u8 * 798405 + u7 * 727595) % u9
+            local u13 = u7 * 798405
+            (function()
+                u12 = (u12 * u9 + u13) % 1099511627776
+                u8 = math.floor(u12 / u9)
+                u7 = u12 - u8 * u9
+            end)()
+            u10 = u10 + 1
+            debug.setupvalue(AC.attack, 5, u8)
+            debug.setupvalue(AC.attack, 6, u9)
+            debug.setupvalue(AC.attack, 4, u7)
+            debug.setupvalue(AC.attack, 7, u10)
+            pcall(function()
+                for k, v in pairs(AC.animator.anims.basic) do
+                    v:Play()
+                end                  
+            end)
+            if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
+                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
+                game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
+                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
+            end
+        end
+    end
+end
+if _G.AutoLV == true then 
+	cac=task.wait
+else
+	cac=wait
+end
+
+while _G.AutoLV do wait(0.175)
+    pcall(function()
+	AttackNoCD()
+    end)
+end
     end
 })
 end
@@ -8048,6 +8970,47 @@ Event:InvokeServer(A_1, A_2, A_3)
 end
     end
 })
+
+local TestTab = Page:CreateSection({
+    Name = "Fake", -- ชื่อ
+    Side = "Left" -- ตำแหน่ง Left/Right
+})
+
+TestTab:AddButton({
+    Name = "Give Bounty",
+    Callback = function()
+    table.clear(players)
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("Earned <Color=Red>1,000,000 Bounty<Color=/> from killing rip_indra"):Display()
+Notification.new("Score: 1/3"):Display()
+wait(1)
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("Earned <Color=Red>1,000,000 Bounty<Color=/> from killing rip_indra"):Display()
+Notification.new("Score: 2/3"):Display()
+wait(1)
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("Earned <Color=Red>1,000,000 Bounty<Color=/> from killing rip_indra"):Display()
+Notification.new("Score: 3/3"):Display()
+    end
+})
+TestTab:AddButton({
+    Name = "Give Honor",
+    Callback = function()
+    table.clear(players)
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("Earned <Color=Blue>1,000,000 Honor<Color=/> from killing rip_indra"):Display()
+Notification.new("Score: 1/3"):Display()
+wait(1)
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("Earned <Color=Blue>1,000,000 Honor<Color=/> from killing rip_indra"):Display()
+Notification.new("Score: 2/3"):Display()
+wait(1)
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("Earned <Color=Blue>1,000,000 Honor<Color=/> from killing rip_indra"):Display()
+Notification.new("Score: 3/3"):Display()
+    end
+})
+
 local TestTab = Page:CreateSection({
     Name = "Combat", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
