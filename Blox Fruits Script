@@ -6096,7 +6096,7 @@ _G.Factorys = Factory
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Factorys then
-    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
+    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
 {CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(428.530334, 182.524506, -425.285431, -0.551542222, 1.43301024e-08, 0.834146976, 5.6766762e-08, 1, 2.03551238e-08, -0.834146976, 5.85785322e-08, -0.551542222))
             end
         end)
@@ -6954,14 +6954,6 @@ end
 local TestTab = Page:CreateSection({
     Name = "Setting Auto Farm", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
-})
-
-TestTab:AddToggle({
-    Name = "Super Farm",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(SuperFarmE)
-_G.SuperFarm = SuperFarmE
-    end
 })
 
 TestTab:AddToggle({
@@ -8147,7 +8139,7 @@ _G.TPs = TP
                 game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
 
 function toTargetWait(a)local b=(a.p-
-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
 {CFrame=a})tweenrach:Play()end;toTargetWait(Workspace.Characters[PlayersPPEED].HumanoidRootPart.CFrame * CFrame.new(0,20,0))
             end
         end)
@@ -8175,7 +8167,7 @@ _G.PlayerKills = PlayerKill
                 game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
 
 function toTargetWait(a)local b=(a.p-
-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/300,Enum.EasingStyle.Linear),
 {CFrame=a})tweenrach:Play()end;toTargetWait(Workspace.Characters[PlayersPPEED].HumanoidRootPart.CFrame * CFrame.new(0,-5,0))
 
 
@@ -8361,16 +8353,6 @@ TestTab:AddButton({
     Callback = function()
             Notification:Notify(
     {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.CrewID.Value},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-    end
-})
-TestTab:AddButton({
-    Name = "Buso Color [Select]",
-    Callback = function()
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.BusoColor.Value},
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
 )
