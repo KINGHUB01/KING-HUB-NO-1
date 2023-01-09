@@ -8370,6 +8370,20 @@ end
     end
 })
 
+TestTab:AddButton({
+    Name = "Unlook Door Race v4",
+    Callback = function()
+game:GetService("Workspace").Map["Temple of Time"].ClockRoomExit:Remove()
+game:GetService("Workspace").Map["Temple of Time"].DoNotEnter:Remove()
+game:GetService("Workspace").Map["Temple of Time"].NoGlitching:Remove()
+game:GetService("Workspace").Map["Temple of Time"].NoGlitching:Remove()
+game:GetService("Workspace").Map["Temple of Time"].NoGlitching:Remove()
+game:GetService("Workspace").Map["Temple of Time"].MainDoor1:Remove()
+game:GetService("Workspace").Map["Temple of Time"].MainDoorArch:Remove()
+game:GetService("Workspace").Map["Temple of Time"].MainDoor2:Remove()
+    end
+})
+
 local TestTab = Page:CreateSection({
     Name = "Fake Transformation V4", -- ชื่อ
     Side = "Left" -- ตำแหน่ง Left/Right
