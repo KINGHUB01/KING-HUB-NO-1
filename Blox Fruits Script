@@ -11232,7 +11232,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end)
 end)
 wait()
-while true do wait(0.5)
+while true do wait(1.5)
     pcall(function()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -11265,7 +11265,19 @@ local Eff = {
 	CFrame = Player.Character.HumanoidRootPart.CFrame,
 }
 
-require(ReplicatedStorage.Effect.Container.LightAwakeningV)(Eff)
+require(ReplicatedStorage.Effect.Container.StringZ)(Eff)
+wait()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+local Eff = {
+	Character = Player.Character,
+	Duration = .25,
+	CFrame = Player.Character.HumanoidRootPart.CFrame,
+}
+
+require(ReplicatedStorage.Effect.Container.StringX)(Eff)
 wait()
 setthreadcontext(5)
 
