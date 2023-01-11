@@ -10514,6 +10514,23 @@ TestTab:AddToggle({
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Agility)
     InfAbility = Agility
+
+while InfAbility do wait()
+    pcall(function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+local Eff = {
+	Character = Player.Character,
+	Duration = .25,
+	CFrame = Player.Character.HumanoidRootPart.CFrame,
+}
+
+require(ReplicatedStorage.Effect.Container.Ice.Freeze)(Eff)
+    end)
+ end
+
     if Agility == false then
         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
     end
@@ -10551,7 +10568,7 @@ function InfAb()
             inf.Rotation = NumberRange.new(0, 0)
             inf.Speed = NumberRange.new(30, 30)
             inf.SpreadAngle = Vector2.new(360,360)
-            inf.Texture = "rbxassetid://7157487174"
+            inf.Texture = ""
             inf.VelocityInheritance = 0
             inf.ZOffset = 2
             inf.Transparency = NumberSequence.new(0)
@@ -11177,6 +11194,18 @@ local Eff = {
 	CFrame = Player.Character.HumanoidRootPart.CFrame,
 }
 
+require(ReplicatedStorage.Effect.Container.KamuiCam)(Eff)
+wait()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+local Eff = {
+	Character = Player.Character,
+	Duration = .25,
+	CFrame = Player.Character.HumanoidRootPart.CFrame,
+}
+
 require(ReplicatedStorage.Effect.Container.Revive.X)(Eff)
 wait()
 setthreadcontext(5)
@@ -11211,7 +11240,7 @@ local Eff = {
 }
 
 require(ReplicatedStorage.Effect.Container.Revive.C)(Eff)
-wait(1)
+wait()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Player = game:GetService("Players").LocalPlayer
@@ -11223,7 +11252,7 @@ local Eff = {
 }
 
 require(ReplicatedStorage.Effect.Container.Revive.C)(Eff)
-wait(0.5)
+wait()
 game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 then
@@ -11232,7 +11261,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end)
 end)
 wait()
-while true do wait(1.5)
+while true do wait(1)
     pcall(function()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -11254,6 +11283,18 @@ TestTab:AddButton({
     Callback = function()
 local Notification = require(game:GetService("ReplicatedStorage").Notification)
 Notification.new("<Color=Black>Skypeian V4 Unlocked!<Color=/>"):Display()
+wait()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+local Eff = {
+	Character = Player.Character,
+	Duration = .25,
+	CFrame = Player.Character.HumanoidRootPart.CFrame,
+}
+
+require(ReplicatedStorage.Effect.Container.KamuiCam)(Eff)
 wait()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -11310,7 +11351,7 @@ local Eff = {
 }
 
 require(ReplicatedStorage.Effect.Container.Light2.Explosion)(Eff)
-wait(4.5)
+wait()
 game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = 120
     end
 })
