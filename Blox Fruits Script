@@ -10687,6 +10687,33 @@ else
 end
     end
 })
+TestTab:AddToggle({
+    Name = "Infinite Rainbow Agility",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(RAAgility)
+if RAAgility then
+	    local Agility = game:GetService("ReplicatedStorage").FX["Agility"]:Clone()
+	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+	    local Agility = game:GetService("ReplicatedStorage").FX["Water Body"]:Clone()
+	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+	    local Agility = game:GetService("ReplicatedStorage").FX["Heavenly Blood"]:Clone()
+	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+	    local Agility = game:GetService("ReplicatedStorage").FX["Energy Core"]:Clone()
+	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+	    local Agility = game:GetService("ReplicatedStorage").FX["Heightened Senses"]:Clone()
+	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+	    local Agility = game:GetService("ReplicatedStorage").FX["Last Resort"]:Clone()
+	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+else
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Agility"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Water Body"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Heavenly Blood"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Energy Core"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Heightened Senses"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Last Resort"]:Destroy()
+end
+    end
+})
 
 TestTab:AddToggle({
     Name = "Infinite Soru",
@@ -11489,6 +11516,10 @@ local Eff = {
 require(ReplicatedStorage.Effect.Container.Light2.Explosion)(Eff)
 wait()
 game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = 120
+wait()
+local Nan = "LightCircles"
+local Agility = game:GetService("ReplicatedStorage").FX.LightEffects.V[Nan]:Clone()
+Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
     end
 })
 
