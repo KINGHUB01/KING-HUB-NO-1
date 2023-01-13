@@ -7690,6 +7690,15 @@ TestTab:AddLabel({
     Name = "Elite Hunter"
 })
 
+local Kill_Elite_Hunter_ST = TestTab:AddLabel({
+    Name = "Kill Elite Hunter : 0"
+})
+
+function CheckStatus()
+	Kill_Elite_Hunter_ST:Set("Kill Elite Hunter : "..tostring(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("EliteHunter", "Progress")))
+end
+CheckStatus()
+
 TestTab:AddToggle({
     Name = "Auto Elite Hunter",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
