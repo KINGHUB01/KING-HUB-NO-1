@@ -6117,6 +6117,19 @@ TestTab:AddButton({
 	end
     end
 })
+TestTab:AddToggle({
+    Name = "Effect",
+    Callback = function(Effectsew)
+        if Effectsew then
+game:GetService("ReplicatedStorage")["hlelo exploiter enjoy this particle"].Enabled = true
+local Agility = game:GetService("ReplicatedStorage")["hlelo exploiter enjoy this particle"]:Clone()
+Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+        else
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["hlelo exploiter enjoy this particle"]:Destroy()
+        end
+    end
+})
+
 
 local TestTab = Page:CreateSection({
     Name = "Main", -- ชื่อ
