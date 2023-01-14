@@ -9294,9 +9294,15 @@ local TestTab = Page:CreateSection({
 })
 
 TestTab:AddButton({
+    Name = "Set 0",
+    Callback = function()
+game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value = 0
+    end
+})
+
+TestTab:AddButton({
     Name = "Give Bounty",
     Callback = function()
-    table.clear(players)
 local A = 1000000
 repeat
 wait(1)
@@ -9311,7 +9317,6 @@ until A > 30000000
 TestTab:AddButton({
     Name = "Give Honor",
     Callback = function()
-    table.clear(players)
 local A = 1000000
 repeat
 wait(1)
