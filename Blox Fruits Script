@@ -7687,7 +7687,7 @@ local TestTab = Page:CreateSection({
 })
 
 TestTab:AddLabel({
-    Name = "Elite Hunter"
+    Name = "      |> Elite Hunter <|"
 })
 
 local Kill_Elite_Hunter_ST = TestTab:AddLabel({
@@ -7887,7 +7887,7 @@ end
     end
 })
 TestTab:AddLabel({
-    Name = "Training Dummy"
+    Name = "      |> Training Dummy <|"
 })
 
 TestTab:AddToggle({
@@ -8029,7 +8029,7 @@ end
     end
 })
 TestTab:AddLabel({
-    Name = "Rip indra"
+    Name = "      |> Rip Indra <|"
 })
 
 TestTab:AddToggle({
@@ -9561,23 +9561,44 @@ _G.aimbot = AimLookLookaim
     end
 })
 
-TestTab:AddLabel({
-    Name = "|\Check Notification/|"
+local TestTab = Page:CreateSection({
+    Name = "Check", -- ชื่อ
+    Side = "Left" -- ตำแหน่ง Left/Right
 })
 
 local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 
-TestTab:AddButton({
-    Name = "Bounty",
-    Callback = function()
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-    end
+local BountyC = TestTab:AddLabel({
+    Name = "Bounty : Kings"
 })
+local LevelSelectC = TestTab:AddLabel({
+    Name = "Level : Kings"
+})
+local BeliC = TestTab:AddLabel({
+    Name = "Belis : Kings"
+})
+local FragmentsC = TestTab:AddLabel({
+    Name = "Fragments : Kings"
+})
+local RaceC = TestTab:AddLabel({
+    Name = "Race : Kings"
+})
+local DevilFruitC = TestTab:AddLabel({
+    Name = "Devil Fruit : Kings"
+})
+
+function CheckTwo()
+	BountyC:Set("Bounty : "..tostring(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
+	LevelSelectC:Set("Level : "..tostring(game:GetService("Players").LocalPlayer.Data.Level.Value))
+	BeliC:Set("Belis : "..tostring(game:GetService("Players").LocalPlayer.Data.Beli.Value))
+	FragmentsC:Set("Fragments : "..tostring(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
+	RaceC:Set("Race : "..tostring(game:GetService("Players").LocalPlayer.Data.Race.Value))
+	DevilFruitC:Set("Devil Fruit : "..tostring(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value))
+end
+
+CheckTwo()
+
 TestTab:AddButton({
     Name = "Level [Select]",
     Callback = function()
@@ -9589,7 +9610,7 @@ TestTab:AddButton({
     end
 })
 TestTab:AddButton({
-    Name = "Beli [Select]",
+    Name = "Belis [Select]",
     Callback = function()
             Notification:Notify(
     {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.Beli.Value},
@@ -9623,16 +9644,6 @@ TestTab:AddButton({
     Callback = function()
             Notification:Notify(
     {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.DevilFruit.Value},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-    end
-})
-TestTab:AddButton({
-    Name = "CrewID [Select]",
-    Callback = function()
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = game:GetService("Players"):FindFirstChild(PlayersPPEED).Data.CrewID.Value},
     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
 )
