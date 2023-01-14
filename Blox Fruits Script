@@ -9297,34 +9297,30 @@ TestTab:AddButton({
     Name = "Give Bounty",
     Callback = function()
     table.clear(players)
-local Notification = require(game:GetService("ReplicatedStorage").Notification)
-Notification.new("Earned <Color=Red>1,000,000 Bounty<Color=/> from killing rip_indra"):Display()
-Notification.new("Score: 1/3"):Display()
+local A = 1000000
+repeat
 wait(1)
+game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value = A
 local Notification = require(game:GetService("ReplicatedStorage").Notification)
 Notification.new("Earned <Color=Red>1,000,000 Bounty<Color=/> from killing rip_indra"):Display()
-Notification.new("Score: 2/3"):Display()
-wait(1)
-local Notification = require(game:GetService("ReplicatedStorage").Notification)
-Notification.new("Earned <Color=Red>1,000,000 Bounty<Color=/> from killing rip_indra"):Display()
-Notification.new("Score: 3/3"):Display()
+Notification.new("Score: Inf"):Display()
+A = A + 1000000
+until A > 30000000
     end
 })
 TestTab:AddButton({
     Name = "Give Honor",
     Callback = function()
     table.clear(players)
-local Notification = require(game:GetService("ReplicatedStorage").Notification)
-Notification.new("Earned <Color=Blue>1,000,000 Honor<Color=/> from killing rip_indra"):Display()
-Notification.new("Score: 1/3"):Display()
+local A = 1000000
+repeat
 wait(1)
+game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value = A
 local Notification = require(game:GetService("ReplicatedStorage").Notification)
 Notification.new("Earned <Color=Blue>1,000,000 Honor<Color=/> from killing rip_indra"):Display()
-Notification.new("Score: 2/3"):Display()
-wait(1)
-local Notification = require(game:GetService("ReplicatedStorage").Notification)
-Notification.new("Earned <Color=Blue>1,000,000 Honor<Color=/> from killing rip_indra"):Display()
-Notification.new("Score: 3/3"):Display()
+Notification.new("Score: Inf"):Display()
+A = A + 1000000
+until A > 30000000
     end
 })
 
