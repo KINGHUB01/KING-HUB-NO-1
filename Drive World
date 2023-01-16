@@ -6016,6 +6016,18 @@ Event:FireServer()
     end)
     end
 })
+TestTab:AddToggle({
+    Name = "Anit AFK",
+	Value = true, -- ปรับค่าToggle true/false or Config
+    Callback = function(vu)
+			local vu = game:GetService("VirtualUser")
+			game:GetService("Players").LocalPlayer.Idled:connect(function()
+				vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+				wait(1)
+				vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+			end)
+    end
+})
 TestTab:AddButton({
     Name = "FPS BOOTS",
     Callback = function()
