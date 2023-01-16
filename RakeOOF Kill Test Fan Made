@@ -5993,6 +5993,12 @@ local TestTab = Page:CreateSection({
     Name = "Main", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
 })
+TestTab:AddButton({
+    Name = "Give Happy StunStick",
+    Callback = function()
+game.Players.LocalPlayer.Character.GivePlayerTool.GiveToolEvent:FireServer()
+    end
+})
 TestTab:AddToggle({
     Name = "Infinite Stamina",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
