@@ -7310,7 +7310,7 @@ local TestTab = Page:CreateSection({
 })
 
 TestTab:AddLabel({
-    Name = "𝔼𝕝𝕚𝕥𝕖 ℍ𝕦𝕟𝕥𝕖𝕣"
+    Name = "Elite Hunter"
 })
 
 local Kill_Elite_Hunter_ST = TestTab:AddLabel({
@@ -7521,7 +7521,7 @@ end
     end
 })
 TestTab:AddLabel({
-    Name = "𝕋𝕣𝕒𝕚𝕟𝕚𝕟𝕘 𝔻𝕦𝕞𝕞𝕪"
+    Name = "Training Dummy"
 })
 
 TestTab:AddToggle({
@@ -7672,7 +7672,7 @@ end
     end
 })
 TestTab:AddLabel({
-    Name = "ℝ𝕚𝕡 𝕀𝕟𝕕𝕣𝕒"
+    Name = "Rip Indra"
 })
 
 TestTab:AddToggle({
@@ -9232,16 +9232,18 @@ local DevilFruitC = TestTab:AddLabel({
     Name = "Devil Fruit : Kings"
 })
 
-function CheckTwo()
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
 	BountyC:Set("Bounty : "..tostring(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value))
 	LevelSelectC:Set("Level : "..tostring(game:GetService("Players").LocalPlayer.Data.Level.Value))
 	BeliC:Set("Belis : "..tostring(game:GetService("Players").LocalPlayer.Data.Beli.Value))
 	FragmentsC:Set("Fragments : "..tostring(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
 	RaceC:Set("Race : "..tostring(game:GetService("Players").LocalPlayer.Data.Race.Value))
 	DevilFruitC:Set("Devil Fruit : "..tostring(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value))
-end
-
-CheckTwo()
+        end)
+       end)
+    end)
 
 TestTab:AddButton({
     Name = "Level [Select]",
