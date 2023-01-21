@@ -7303,401 +7303,37 @@ wait(5)
 end
     end
 })
-local TestTab = Page:CreateSection({
-    Name = "Auto Farm ITEM", -- ชื่อ
-    Side = "Left" -- ตำแหน่ง Left/Right
-})
 
-TestTab:AddToggle({
-    Name = "Candy [Word 3]",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(CandyFarm)
-_G.CandyFarms = CandyFarm
-
-            if _G.CandyFarms == false then
-    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
-{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
-            end
-
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.CandyFarms then
-function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies["Snow Demon [Lv. 2425]"].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
-            end
-        end)
-       end)
-    end)
-
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.CandyFarms then
-function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies["Candy Pirate [Lv. 2400]"].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
-            end
-        end)
-       end)
-    end)
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.CandyFarms then
-    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
-{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-1080.08093, 14.6404381, -14479.3418, 0.999487996, -8.0559694e-08, 0.0319965556, 7.88432359e-08, 1, 5.49067565e-08, -0.0319965556, -5.23559294e-08, 0.999487996))
-            end
-        end)
-       end)
-    end)
-
-    spawn(function()
-        game:GetService("RunService").Heartbeat:Connect(function()
-            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.CandyFarms then
-                setfflag("HumanoidParallelRemoveNoPhysics", "False")
-                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
-            end
-        end)
-    end)
-
-local plr = game.Players.LocalPlayer
- 
-local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
-local CbFw2 = CbFw[2]
- 
-function GetCurrentBlade() 
-    local p13 = CbFw2.activeController
-    local ret = p13.blades[1]
-    if not ret then return end
-    while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
-    return ret
-end
-function AttackNoCD() 
-    local AC = CbFw2.activeController
-    for i = 1, 1 do 
-        local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
-            plr.Character,
-            {plr.Character.HumanoidRootPart},
-            60
-        )
-        local cac = {}
-        local hash = {}
-        for k, v in pairs(bladehit) do
-            if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
-                table.insert(cac, v.Parent.HumanoidRootPart)
-                hash[v.Parent] = true
-            end
-        end
-        bladehit = cac
-        if #bladehit > 0 then
-            local u8 = debug.getupvalue(AC.attack, 5)
-            local u9 = debug.getupvalue(AC.attack, 6)
-            local u7 = debug.getupvalue(AC.attack, 4)
-            local u10 = debug.getupvalue(AC.attack, 7)
-            local u12 = (u8 * 798405 + u7 * 727595) % u9
-            local u13 = u7 * 798405
-            (function()
-                u12 = (u12 * u9 + u13) % 1099511627776
-                u8 = math.floor(u12 / u9)
-                u7 = u12 - u8 * u9
-            end)()
-            u10 = u10 + 1
-            debug.setupvalue(AC.attack, 5, u8)
-            debug.setupvalue(AC.attack, 6, u9)
-            debug.setupvalue(AC.attack, 4, u7)
-            debug.setupvalue(AC.attack, 7, u10)
-            pcall(function()
-                for k, v in pairs(AC.animator.anims.basic) do
-                    v:Play()
-                end                  
-            end)
-            if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
-                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
-                game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
-                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
-            end
-        end
-    end
-end
-if _G.CandyFarms == true then 
-	cac=task.wait
-else
-	cac=wait
-end
- 
-while _G.CandyFarms do wait(0.175)
-    pcall(function()
-	AttackNoCD()
-    end)
-end
-
-
-    spawn(function()
-        game:GetService("RunService").Heartbeat:Connect(function()
-            if _G.CandyFarms then
-game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
-            end
-        end)
-    end)
-
-    spawn(function()
-        game:GetService("RunService").Heartbeat:Connect(function()
-            if _G.CandyFarms then
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if v.Name == "Candy Pirate [Lv. 2400]" then
-    if y.Name == "Candy Pirate [Lv. 2400]" then
-   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   v.HumanoidRootPart.Transparency = 1
-   v.HumanoidRootPart.CanCollide = false
-   y.HumanoidRootPart.CanCollide = false
-   v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
-   if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
-end
-end
-end
-end
-
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if v.Name == "Snow Demon [Lv. 2425]" then
-    if y.Name == "Snow Demon [Lv. 2425]" then
-   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   v.HumanoidRootPart.Transparency = 1
-   v.HumanoidRootPart.CanCollide = false
-   y.HumanoidRootPart.CanCollide = false
-   v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
-   if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
-end
-end
-end
-end
-
-            end
-        end)
-    end)
-    end
-})
-
-TestTab:AddToggle({
-    Name = "Fish Tail [Word 3]",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(FishTailFarm)
-_G.FishTailFarms = FishTailFarm
-
-            if _G.FishTailFarms == false then
-    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
-{CFrame=a})tweenrach:Play()end;toTargetWait(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
-            end
-
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.FishTailFarms then
-function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies["Fishman Captain [Lv. 1800]"].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
-            end
-        end)
-       end)
-    end)
-
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.FishTailFarms then
-function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Enemies["Fishman Raider [Lv. 1775]"].HumanoidRootPart.CFrame*CFrame.new(0,20,0))
-            end
-        end)
-       end)
-    end)
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.FishTailFarms then
-    function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/270,Enum.EasingStyle.Linear),
-{CFrame=a})tweenrach:Play()end;toTargetWait(CFrame.new(-10581.4639, 337.675812, -8761.22363, -0.89762187, 3.5365364e-08, 0.440766305, 3.76270854e-08, 1, -3.60841446e-09, -0.440766305, 1.33457601e-08, -0.89762187))
-            end
-        end)
-       end)
-    end)
-
-    spawn(function()
-        game:GetService("RunService").Heartbeat:Connect(function()
-            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.FishTailFarms then
-                setfflag("HumanoidParallelRemoveNoPhysics", "False")
-                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
-            end
-        end)
-    end)
-
-local plr = game.Players.LocalPlayer
- 
-local CbFw = debug.getupvalues(require(plr.PlayerScripts.CombatFramework))
-local CbFw2 = CbFw[2]
- 
-function GetCurrentBlade() 
-    local p13 = CbFw2.activeController
-    local ret = p13.blades[1]
-    if not ret then return end
-    while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
-    return ret
-end
-function AttackNoCD() 
-    local AC = CbFw2.activeController
-    for i = 1, 1 do 
-        local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
-            plr.Character,
-            {plr.Character.HumanoidRootPart},
-            60
-        )
-        local cac = {}
-        local hash = {}
-        for k, v in pairs(bladehit) do
-            if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
-                table.insert(cac, v.Parent.HumanoidRootPart)
-                hash[v.Parent] = true
-            end
-        end
-        bladehit = cac
-        if #bladehit > 0 then
-            local u8 = debug.getupvalue(AC.attack, 5)
-            local u9 = debug.getupvalue(AC.attack, 6)
-            local u7 = debug.getupvalue(AC.attack, 4)
-            local u10 = debug.getupvalue(AC.attack, 7)
-            local u12 = (u8 * 798405 + u7 * 727595) % u9
-            local u13 = u7 * 798405
-            (function()
-                u12 = (u12 * u9 + u13) % 1099511627776
-                u8 = math.floor(u12 / u9)
-                u7 = u12 - u8 * u9
-            end)()
-            u10 = u10 + 1
-            debug.setupvalue(AC.attack, 5, u8)
-            debug.setupvalue(AC.attack, 6, u9)
-            debug.setupvalue(AC.attack, 4, u7)
-            debug.setupvalue(AC.attack, 7, u10)
-            pcall(function()
-                for k, v in pairs(AC.animator.anims.basic) do
-                    v:Play()
-                end                  
-            end)
-            if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then 
-                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
-                game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
-                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "") 
-            end
-        end
-    end
-end
-if _G.FishTailFarms == true then 
-	cac=task.wait
-else
-	cac=wait
-end
- 
-while _G.FishTailFarms do wait(0.175)
-    pcall(function()
-	AttackNoCD()
-    end)
-end
-
-
-    spawn(function()
-        game:GetService("RunService").Heartbeat:Connect(function()
-            if _G.FishTailFarms then
-game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
-            end
-        end)
-    end)
-
-    spawn(function()
-        game:GetService("RunService").Heartbeat:Connect(function()
-            if _G.FishTailFarms then
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if v.Name == "Fishman Captain [Lv. 1800]" then
-    if y.Name == "Fishman Captain [Lv. 1800]" then
-   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   v.HumanoidRootPart.Transparency = 1
-   v.HumanoidRootPart.CanCollide = false
-   y.HumanoidRootPart.CanCollide = false
-   v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
-   if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
-end
-end
-end
-end
-
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if v.Name == "Fishman Raider [Lv. 1775]" then
-    if y.Name == "Fishman Raider [Lv. 1775]" then
-   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
-   v.HumanoidRootPart.Transparency = 1
-   v.HumanoidRootPart.CanCollide = false
-   y.HumanoidRootPart.CanCollide = false
-   v.Humanoid.WalkSpeed = 0
-   y.Humanoid.WalkSpeed = 0
-   v.Humanoid.JumpPower = 0
-   y.Humanoid.JumpPower = 0
-   if sethiddenproperty then
-     sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-end
-end
-end
-end
-end
-
-            end
-        end)
-    end)
-    end
-})
 local TestTab = Page:CreateSection({
     Name = "Auto Farm Other", -- ชื่อ
     Side = "Left" -- ตำแหน่ง Left/Right
 })
 
 TestTab:AddLabel({
-    Name = "      |> Elite Hunter <|"
+    Name = "𝔼𝕝𝕚𝕥𝕖 ℍ𝕦𝕟𝕥𝕖𝕣"
 })
 
 local Kill_Elite_Hunter_ST = TestTab:AddLabel({
     Name = "Kill Elite Hunter : 0"
 })
 
-function CheckStatus()
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
 	Kill_Elite_Hunter_ST:Set("Kill Elite Hunter : "..tostring(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("EliteHunter", "Progress")))
-end
-CheckStatus()
+        end)
+       end)
+    end)
 
 TestTab:AddToggle({
     Name = "Auto Elite Hunter",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(EliteH)
 _G.EliteHs = EliteH
+
+local A_1 = "AbandonQuest"
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1)
 
             if _G.EliteHs == false then
     function toTargetWait(a)local b=(a.p-
@@ -7799,10 +7435,14 @@ game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players")
         pcall(function()
             if _G.EliteHs then
 
+                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+
 local A_1 = "EliteHunter"
 local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
 Event:InvokeServer(A_1)
  
+                    end
+
             end
         end)
        end)
@@ -7881,7 +7521,7 @@ end
     end
 })
 TestTab:AddLabel({
-    Name = "      |> Training Dummy <|"
+    Name = "𝕋𝕣𝕒𝕚𝕟𝕚𝕟𝕘 𝔻𝕦𝕞𝕞𝕪"
 })
 
 TestTab:AddToggle({
@@ -7889,6 +7529,10 @@ TestTab:AddToggle({
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(TrainingDummy)
 _G.TrainingDummys = TrainingDummy
+
+local A_1 = "AbandonQuest"
+local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+Event:InvokeServer(A_1)
 
             if _G.TrainingDummys == false then
     function toTargetWait(a)local b=(a.p-
@@ -7941,10 +7585,15 @@ game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players")
         pcall(function()
             if _G.TrainingDummys then
 
+                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+
+
 local A_1 = "ArenaTrainer"
 local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
 Event:InvokeServer(A_1)
  
+                 end
+
             end
         end)
        end)
@@ -8023,7 +7672,7 @@ end
     end
 })
 TestTab:AddLabel({
-    Name = "      |> Rip Indra <|"
+    Name = "ℝ𝕚𝕡 𝕀𝕟𝕕𝕣𝕒"
 })
 
 TestTab:AddToggle({
