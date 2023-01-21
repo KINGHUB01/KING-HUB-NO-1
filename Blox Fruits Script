@@ -6377,17 +6377,11 @@ function CheckLevel()
         Numbert = 2
         TPNOTQ = CFrame.new(-959.091614, 80.6123505, 1690.93433, 0.992822945, 6.89338198e-10, 0.119593285, 2.21526811e-10, 1, -7.60306129e-09, -0.119593285, 7.57498686e-09, 0.992822945)
         SPEED = 300
-    elseif MyLevel == 775 or MyLevel <= 799 then
+    elseif MyLevel == 775 or MyLevel <= 874 then
         MON = "Swan Pirate [Lv. 775]"
         QuestZ = "Area2Quest"
         Numbert = 1
         TPNOTQ = CFrame.new(840.501343, 121.607971, 1240.17395, -0.206274137, -9.77320713e-09, -0.978494227, -1.01027524e-07, 1, 1.13093757e-08, 0.978494227, 1.0118768e-07, -0.206274137)
-        SPEED = 300
-    elseif MyLevel == 800 or MyLevel <= 874 then
-        MON = "Factory Staff [Lv. 800]"
-        QuestZ = "Area2Quest"
-        Numbert = 2
-        TPNOTQ = CFrame.new(732.810303, 118.671463, -32.0496254, -0.973876834, 1.10893277e-08, -0.227077007, 3.16706767e-08, 1, -8.69925643e-08, 0.227077007, -9.19117227e-08, -0.973876834)
         SPEED = 300
     elseif MyLevel == 875 or MyLevel <= 899 then
         MON = "Marine Lieutenant [Lv. 875]"
