@@ -8853,14 +8853,16 @@ local TestTab = Page:CreateSection({
 TestTab:AddToggle({
     Name = "Race v4 Gui",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(RacveFakev8s)
-_G.RacveFakev8 = RacveFakev8s
+    Callback = function(EED)
+_G.EEDs = EED
 
     spawn(function()
-        game:GetService("RunService").Heartbeat:Connect(function()
-            if _G.RacveFakev8 then
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.EEDs then
 game.Players.LocalPlayer.PlayerGui.Main.RaceEnergy.Visible = true
             end
+        end)
        end)
     end)
     end
