@@ -8123,7 +8123,7 @@ Camera:Stop()
 })
 
 TestTab:AddToggle({
-    Name = "FullBright",
+    Name = "View Moon",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(FOX)
 _G.FOXs = FOX
@@ -8132,11 +8132,7 @@ _G.FOXs = FOX
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.FOXs then
-            game:GetService("Lighting").Brightness = 2
-            game:GetService("Lighting").ClockTime = 14
-            game:GetService("Lighting").FogEnd = 100000
-            game:GetService("Lighting").GlobalShadows = false
-            game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+game:GetService("Lighting").ClockTime = 0
             end
         end)
        end)
