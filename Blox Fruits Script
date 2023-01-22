@@ -8858,7 +8858,7 @@ _G.RacveFakev8 = RacveFakev8s
 
     spawn(function()
         game:GetService("RunService").Heartbeat:Connect(function()
-            if _G.RacveFakev8s then
+            if _G.RacveFakev8 then
 game.Players.LocalPlayer.PlayerGui.Main.RaceEnergy.Visible = true
             end
        end)
