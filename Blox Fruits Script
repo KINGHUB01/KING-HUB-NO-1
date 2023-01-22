@@ -7297,8 +7297,10 @@ function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForC
 
 while _G.ChestsFasts do wait(5)
     pcall(function()
+if ChestsKick == true then
 game.Players.LocalPlayer.Character.Humanoid.Health = -100
 wait(5)
+end
     end)
 end
     end
@@ -7838,10 +7840,17 @@ Event:InvokeServer(A_1)
 end
     end
 })
+TestTab:AddToggle({
+    Name = "Bypass Farm Chests Kick",
+	Value = true, -- ปรับค่าToggle true/false or Config
+    Callback = function(ChestsKickWot)
+ChestsKick = ChestsKickWot
+    end
+})
 
 TestTab:AddToggle({
     Name = "HitBox",
-	Value = ConfigToggle, -- ปรับค่าToggle true/false or Config
+	Value = true, -- ปรับค่าToggle true/false or Config
     Callback = function(hit)
 _G.hits = hit
 
