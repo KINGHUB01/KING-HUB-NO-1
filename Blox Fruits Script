@@ -8846,6 +8846,40 @@ local args = {
     end
 })
 
+local TestTab = Page:CreateSection({
+    Name = "Mod Race v4", -- ชื่อ
+    Side = "Right" -- ตำแหน่ง Left/Right
+})
+TestTab:AddToggle({
+    Name = "Race v4 Gui",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(RacveFakev8s)
+_G.RacveFakev8 = RacveFakev8s
+
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if _G.RacveFakev8s then
+game.Players.LocalPlayer.PlayerGui.Main.RaceEnergy.Visible = true
+            end
+       end)
+    end)
+    end
+})
+TestTab:AddButton({
+    Name = "Max Race Energy",
+    Callback = function()
+game.Players.LocalPlayer.Character.RaceEnergy.Value = 1
+game.Players.LocalPlayer.Character.RaceTransformed = true
+    end
+})
+TestTab:AddButton({
+    Name = "low Race Energy",
+    Callback = function()
+game.Players.LocalPlayer.Character.RaceEnergy.Value = 0
+game.Players.LocalPlayer.Character.RaceTransformed = false
+    end
+})
+
 local Page = PepsiUi:CreateTab({
     Name = "Stats&Combat"
 })
