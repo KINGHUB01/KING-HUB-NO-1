@@ -8650,18 +8650,6 @@ end)
 })
 
 local TestTab = Page:CreateSection({
-    Name = "รายชื่อค่ายขี้ก็อป", -- ชื่อ
-    Side = "Left" -- ตำแหน่ง Left/Right
-})
-
-TestTab:AddButton({
-    Name = "Zen Hub",
-    Callback = function()
-require(game:GetService("ReplicatedStorage").Notification).new("Zen Hub หัวควยขี้ก็อป"):Display();
-    end
-})
-
-local TestTab = Page:CreateSection({
     Name = "Time", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
 })
@@ -8847,9 +8835,10 @@ local args = {
 })
 
 local TestTab = Page:CreateSection({
-    Name = "Mod Race v4", -- ชื่อ
+    Name = "Animation Script", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
 })
+
 TestTab:AddToggle({
     Name = "Race v4 Gui",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
@@ -8867,20 +8856,142 @@ game.Players.LocalPlayer.PlayerGui.Main.RaceEnergy.Visible = true
     end)
     end
 })
+
+local LabelByNino = TestTab:AddLabel({
+    Name = "Reset To UnLoop"
+})
+
 TestTab:AddButton({
-    Name = "Max Race Energy",
+    Name = "Eat Fruit",
     Callback = function()
-game.Players.LocalPlayer.Character.RaceEnergy.Value = 1
-game.Players.LocalPlayer.Character.RaceTransformed = true
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].FruitEat):Play()
     end
 })
 TestTab:AddButton({
-    Name = "low Race Energy",
+    Name = "Yoru X",
     Callback = function()
-game.Players.LocalPlayer.Character.RaceEnergy.Value = 0
-game.Players.LocalPlayer.Character.RaceTransformed = false
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].YoruX):Play()
     end
 })
+TestTab:AddButton({
+    Name = "Race Sky Aura Kneel",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].SkyAuraKneel):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Electrify [Loop]",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].Electrify):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Shadow C",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].ShadowC):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Kilo Holding Skill [Loop]",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].KiloHoldingSkillLoop):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Kilo Falling [Loop]",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].KiloFallingLooped):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Kilo Impact",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].KiloImpact):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Fall Land",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].FallLand):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Godhuman CHit",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].Godhuman["SuperhumanV2CHit"]):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Buddha Z Transform",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].BuddhaZTransform):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Buddha F",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].BuddhaFGrab):Play()
+    end
+})
+TestTab:AddButton({
+    Name = "Quake V",
+    Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game:GetService("Players").LocalPlayer
+
+Player.Character.Humanoid:LoadAnimation(ReplicatedStorage.Util.Anims.Storage["2"].TremorV):Play()
+    end
+})
+
 
 local Page = PepsiUi:CreateTab({
     Name = "Stats&Combat"
