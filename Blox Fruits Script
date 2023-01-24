@@ -6273,8 +6273,14 @@ Event:InvokeServer(A_1, A_2, A_3)
 
     spawn(function()
         game:GetService("RunService").Heartbeat:Connect(function()
-            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+            if _G.AutoLV then
+
+if game.Workspace.Enemies:FindFirstChild(MON) then
+
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
+
+end
+
             end
         end)
     end)
@@ -6570,8 +6576,14 @@ Event:InvokeServer(A_1, A_2, A_3)
 
     spawn(function()
         game:GetService("RunService").Heartbeat:Connect(function()
-            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+            if _G.AutoLV then
+
+if game.Workspace.Enemies:FindFirstChild(MON) then
+
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
+
+end
+
             end
         end)
     end)
@@ -6921,8 +6933,14 @@ Event:InvokeServer(A_1, A_2, A_3)
 
     spawn(function()
         game:GetService("RunService").Heartbeat:Connect(function()
-            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoLV then
+            if _G.AutoLV then
+
+if game.Workspace.Enemies:FindFirstChild(MON) then
+
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
+
+end
+
             end
         end)
     end)
@@ -7038,7 +7056,7 @@ _G.Factorys = Factory
 
     spawn(function()
         game:GetService("RunService").Heartbeat:Connect(function()
-            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.Factorys then
+            if _G.Factorys then
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(SelectToolWeapon))
             end
         end)
