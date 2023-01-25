@@ -10727,19 +10727,51 @@ TestTab:AddToggle({
     Name = "Infinite Agility",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Agility)
-if Agility then
+
+if Agility == false then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Agility"]:Destroy()
+end
+
+_G.Agilitys = Agility
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+           if _G.Agilitys then
+
+            if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
 	    local Agility = game:GetService("ReplicatedStorage").FX["Agility"]:Clone()
 	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-else
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Agility"]:Destroy()
-end
+            end
+
+           end
+        end)
+       end)
+    end)
     end
 })
 TestTab:AddToggle({
     Name = "Infinite Rainbow Agility",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(RAAgility)
-if RAAgility then
+
+if RAAgility == false then
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Agility"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Water Body"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Heavenly Blood"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Energy Core"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Heightened Senses"]:Destroy()
+	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Last Resort"]:Destroy()
+end
+
+_G.RAAgilitys = RAAgility
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+           if _G.RAAgilitys then
+
+            if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Water Body") then
 	    local Agility = game:GetService("ReplicatedStorage").FX["Agility"]:Clone()
 	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
 	    local Agility = game:GetService("ReplicatedStorage").FX["Water Body"]:Clone()
@@ -10752,14 +10784,12 @@ if RAAgility then
 	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
 	    local Agility = game:GetService("ReplicatedStorage").FX["Last Resort"]:Clone()
 	Agility.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-else
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Agility"]:Destroy()
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Water Body"]:Destroy()
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Heavenly Blood"]:Destroy()
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Energy Core"]:Destroy()
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Heightened Senses"]:Destroy()
-	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart["Last Resort"]:Destroy()
-end
+            end
+
+           end
+        end)
+       end)
+    end)
     end
 })
 
