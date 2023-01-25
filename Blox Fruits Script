@@ -8196,6 +8196,14 @@ game:GetService("Workspace").Camera.FieldOfView = 70
     end
 })
 
+TestTab:AddButton({
+    Name = "No Fox",
+    Callback = function()
+game:GetService("Lighting").FogEnd = 10000000000
+game:GetService("Lighting").BaseAtmosphere:Remove()
+    end
+})
+
 TestTab:AddToggle({
     Name = "View Moon",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
