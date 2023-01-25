@@ -9613,6 +9613,15 @@ local TestTab = Page:CreateSection({
     Side = "Left" -- ตำแหน่ง Left/Right
 })
 
+TestTab:AddButton({
+    Name = "Temple of Time",
+    Callback = function()
+function toTargetWait(a)local b=(a.p-
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/10000000,Enum.EasingStyle.Linear),
+{CFrame=a})tweenrach:Play()end;toTargetWait(game:GetService("Workspace").Map["Temple of Time"].ClockRoomSpawn.CFrame*CFrame.new(0,0,0))
+    end
+})
+
 TestTab:AddToggle({
     Name = "Port Town",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
