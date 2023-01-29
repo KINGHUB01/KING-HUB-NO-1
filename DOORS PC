@@ -6270,26 +6270,6 @@ TestTab:AddToggle({
     end
 })
 
-TestTab:AddButton({
-    Name = "UnLook Crucifix [Shop]",
-    Callback = function()
-game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Crucifix"].Visible = true
-    end
-})
-TestTab:AddButton({
-    Name = "UnLook Skeleton Key [Shop]",
-    Callback = function()
-game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Skeleton Key"].Visible = true
-    end
-})
-TestTab:AddButton({
-    Name = "UnLook All [Shop]",
-    Callback = function()
-game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Crucifix"].Visible = true
-game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Skeleton Key"].Visible = true
-    end
-})
-
 local Page = PepsiUi:CreateTab({
     Name = "Visuals"
 })
