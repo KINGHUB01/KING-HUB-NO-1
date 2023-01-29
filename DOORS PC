@@ -6005,9 +6005,9 @@ local TestTab = Page:CreateSection({
 
 TestTab:AddSlider({
 	Name = "Slider",
-	Value = 35, -- ค่าที่ให้เลือก
+	Value = 20, -- ค่าที่ให้เลือก
 	Min = 15, -- น้อยสุด
-	Max = 50, -- มากสุด
+	Max = 20, -- มากสุด
 	Format = "Speed : %s%%",
 	Callback = function(abc)
     Select = abc
@@ -6050,40 +6050,6 @@ game:GetService("Workspace").Camera.FieldOfView = FieldOfViewe
         end
     end)
 end)
-    end
-})
-
-TestTab:AddSlider({
-	Name = "Boots",
-	Value = 0, -- ค่าที่ให้เลือก
-	Min = 0, -- น้อยสุด
-	Max = 20, -- มากสุด
-	Format = "Speed Boots : %s%%",
-	Callback = function(SpeedBoots)
-	Boots = SpeedBoots
-	end
-})
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    pcall(function()
-        if game.Players.LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 then
-            game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection * Boots/50)
-        end
-    end)
-end)
-
-TestTab:AddToggle({
-    Name = "Noclip",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(noclip)
-        getgenv().col = noclip
-       for i,v in next, game.Players.LocalPlayer.Character:GetDescendants() do
-          if v.IsA(v,"BasePart") and getgenv().col == false then
-             v.CanCollide = true
-          elseif v.IsA(v,"BasePart") and getgenv().col == true then
-            v.CanCollide = false
-          end
-       end
     end
 })
 
@@ -6305,9 +6271,22 @@ TestTab:AddToggle({
 })
 
 TestTab:AddButton({
-    Name = "Skip Library",
+    Name = "UnLook Crucifix [Shop]",
     Callback = function()
-        collision.CFrame = CFrame.new(game:GetService("Workspace").CurrentRooms["51"].RoomStart.Position)
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Crucifix"].Visible = true
+    end
+})
+TestTab:AddButton({
+    Name = "UnLook Skeleton Key [Shop]",
+    Callback = function()
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Skeleton Key"].Visible = true
+    end
+})
+TestTab:AddButton({
+    Name = "UnLook All [Shop]",
+    Callback = function()
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Crucifix"].Visible = true
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Items["ItemShop_Skeleton Key"].Visible = true
     end
 })
 
