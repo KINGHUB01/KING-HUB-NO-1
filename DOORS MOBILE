@@ -11,23 +11,6 @@ end
 local UILib = loadstring(game:HttpGet('https://pastebin.com/raw/rmqhJWxq'))();
 local notifications = loadstring(game:HttpGet(("https://pastebin.com/raw/CcenX7YB"),true))()
 local win = UILib:Window("KING HUB | Doors [Beta]",Color3.fromRGB(102, 255, 153), Enum.KeyCode.RightControl)
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-    
-    task.spawn(function()
-        game.Workspace.ChildAdded:Connect(function(v)
-            if v:IsA("Model") then
-Notification:Notify(
-    {Title = "KING HUB Notification", Description = v.Name.. " spawned!"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-            end
-        end)
-    end)
-
-
-
 
 local old
 old = hookmetamethod(game,"__namecall",function(self,...)
@@ -42,16 +25,6 @@ old = hookmetamethod(game,"__namecall",function(self,...)
     return old(self,...)
 end)
 
-workspace.ChildAdded:Connect(function(v)
-    task.wait()
-    if v.Name == "RushMoving" or v.Name == "AmbushMoving" then
-        while workspace:FindFirstChild(v.Name) and getgenv().hxde do
-            task.wait()
-            part = v:WaitForChild("RushNew")
-            game.Players.LocalPlayer.Character.Collision.CFrame = CFrame.new(part.Position + Vector3.new(0,90,80))
-        end
-    end
-end)
 
 workspace.DescendantAdded:Connect(function(v)
     task.wait(0.01)
