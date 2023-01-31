@@ -6005,27 +6005,31 @@ local TestTab = Page:CreateSection({
 
 TestTab:AddSlider({
 	Name = "Slider",
-	Value = 20, -- ค่าที่ให้เลือก
-	Min = 15, -- น้อยสุด
-	Max = 20, -- มากสุด
+	Value = 5, -- ค่าที่ให้เลือก
+	Min = 0, -- น้อยสุด
+	Max = 5, -- มากสุด
 	Format = "Speed : %s%%",
-	Callback = function(abc)
-    Select = abc
+	Callback = function(abcBotts)
+    SelectBoots = abcBotts
 	end
 })
 
 TestTab:AddToggle({
-    Name = "Speed Hack",
+    Name = "Speed Boots",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(SPEEDHACKER)
-_G.SPEEDHACKERs = SPEEDHACKER
-while _G.SPEEDHACKERs do wait()
-    pcall(function()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Select
-    end)
- end
+_G.BootsSpeed = SPEEDHACKER
     end
 })
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.BootsSpeed then
+            game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection * SelectBoots/50)
+        end
+    end)
+end)
+
 TestTab:AddSlider({
 	Name = "Slider",
 	Value = 70, -- ค่าที่ให้เลือก
@@ -6122,65 +6126,7 @@ TestTab:AddToggle({
     end
 })
 
-TestTab:AddButton({
-    Name = "Skip Room",
-    Callback = function()
-            local HasKey = false
-            local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
-            for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
-                if v.Name == "KeyObtain" then
-                    HasKey = v
-                end
-            end
-            if HasKey then
-                game.Players.LocalPlayer.Character:PivotTo(CF(HasKey.Hitbox.Position))
-                wait(0.3)
-                fireproximityprompt(HasKey.ModulePrompt,0)
-                game.Players.LocalPlayer.Character:PivotTo(CF(CurrentDoor.Door.Position))
-                wait(0.3)
-                fireproximityprompt(CurrentDoor.Lock.UnlockPrompt,0)
-            end
-            if LatestRoom == 50 then
-                CurrentDoor = workspace.CurrentRooms[tostring(LatestRoom+1)]:WaitForChild("Door")
-            end
-            game.Players.LocalPlayer.Character:PivotTo(CF(CurrentDoor.Door.Position))
-            wait(0.3)
-            CurrentDoor.ClientOpen:FireServer()
-    end
-})
 
-TestTab:AddToggle({
-    Name = "Auto Skip Rooms",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(SkipRooms)
-_G.SkipRoomss = SkipRooms
-while _G.SkipRoomss do wait()
-    pcall(function()
-            local HasKey = false
-            local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
-            for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
-                if v.Name == "KeyObtain" then
-                    HasKey = v
-                end
-            end
-            if HasKey then
-                game.Players.LocalPlayer.Character:PivotTo(CF(HasKey.Hitbox.Position))
-                wait(0.3)
-                fireproximityprompt(HasKey.ModulePrompt,0)
-                game.Players.LocalPlayer.Character:PivotTo(CF(CurrentDoor.Door.Position))
-                wait(0.3)
-                fireproximityprompt(CurrentDoor.Lock.UnlockPrompt,0)
-            end
-            if LatestRoom == 50 then
-                CurrentDoor = workspace.CurrentRooms[tostring(LatestRoom+1)]:WaitForChild("Door")
-            end
-            game.Players.LocalPlayer.Character:PivotTo(CF(CurrentDoor.Door.Position))
-            wait(0.3)
-            CurrentDoor.ClientOpen:FireServer()
-    end)
- end
-    end
-})
 TestTab:AddToggle({
     Name = "Fast E",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
@@ -6198,20 +6144,6 @@ TestTab:AddToggle({
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(Heartbeat)
    getgenv().winhb = Heartbeat
-    end
-})
-
-TestTab:AddButton({
-    Name = "Get Key",
-    Callback = function()
-        CF = CFrame.new
-        local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
-        for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
-            if v.Name == "KeyObtain" then
-                game.Players.LocalPlayer.Character:PivotTo(CF(v.Hitbox.Position))
-                fireproximityprompt(v.ModulePrompt)
-            end
-        end
     end
 })
 
@@ -6234,39 +6166,6 @@ local Event = game:GetService("ReplicatedStorage").Bricks.Screech
 Event:FireServer(A_1)
     end)
  end
-    end
-})
-
-TestTab:AddToggle({
-    Name = "Event notifiers",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(notifier)
-_G.notifiers = notifier
-    
-        task.spawn(function()
-        game.Workspace.ChildAdded:Connect(function(v)
-                    if _G.notifiers then
-            if v:IsA("Model") then
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()  
-
-Notification.new("error", "KING HUB Notification", v.Name.. " spawned!")
-
-local notif = Notification.new("success", "KING HUB", "NO 1")
-notif:changeHeading("New Heading") -- Args(<string> NewHeading)
-notif:changeBody("New Body") -- Args(<string> NewBody)
-notif:deleteTimeout(1) -- Args(<number> DeleteWaitTime)
-notif:delete()
-            end
-           end
-        end)
-    end)
-    end
-})
-TestTab:AddToggle({
-    Name = "Auto Hide Rush/Ambush",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(hidedd)
-    getgenv().hxde = hidedd
     end
 })
 
@@ -6434,21 +6333,51 @@ end
 })
 
 local TestTab = Page:CreateSection({
-    Name = "View Notification", -- ชื่อ
+    Name = "View Entities", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
 })
-TestTab:AddLabel({
-    Name = "Lookman = Eyes"
+local RushSpawn = TestTab:AddLabel({
+    Name = "? : [IDK]"
 })
-TestTab:AddLabel({
-    Name = "RushMoving = Rush"
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+if not game.workspace:FindFirstChild("RushMoving") then
+    RushSpawn:Set("🔴 : Rush No Spawn")
+elseif game.workspace:FindFirstChild("RushMoving") then
+    RushSpawn:Set("🟢 : Rush Spawn Hide!")
+end
+        end)
+       end)
+    end)
+local AmbushMovingSpawn = TestTab:AddLabel({
+    Name = "? : [IDK]"
 })
-TestTab:AddLabel({
-    Name = "AmbushMoving = Ambush"
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+if not game.workspace:FindFirstChild("AmbushMoving") then
+    AmbushMovingSpawn:Set("🔴 : Ambush No Spawn")
+elseif game.workspace:FindFirstChild("AmbushMoving") then
+    AmbushMovingSpawn:Set("🟢 : Ambush Spawn Hide!")
+end
+        end)
+       end)
+    end)
+local SeekMovingSpawn = TestTab:AddLabel({
+    Name = "? : [IDK]"
 })
-TestTab:AddLabel({
-    Name = "SeekMoving = Seek"
-})
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+if not game.workspace:FindFirstChild("SeekMoving") then
+    SeekMovingSpawn:Set("🔴 : Seek No Spawn")
+elseif game.workspace:FindFirstChild("SeekMoving") then
+    SeekMovingSpawn:Set("🟢 : Good Luck Meet Seek!")
+end
+        end)
+       end)
+    end)
 
 
 return library, library_flags, library.subs
