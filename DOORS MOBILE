@@ -95,6 +95,28 @@ MainSection:Toggle("Instant Interract",false, function(noEwait)
             end
 		end)
 end)
+MainSection:Toggle("Event notifiers",false, function(notifier)
+_G.notifiers = notifier
+end)
+
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+    task.spawn(function()
+        game.Workspace.ChildAdded:Connect(function(v)
+if _G.notifiers then
+            if v:IsA("Model") then
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = v.Name.. " Spawned!"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                task.wait(5)
+            end
+end
+        end)
+    end)
 
 MainSection:Toggle("Remove Seek Arms",false, function(seek)
     getgenv().removearms = seek
