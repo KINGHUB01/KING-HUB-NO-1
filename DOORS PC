@@ -6030,6 +6030,21 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end)
 end)
 
+TestTab:AddToggle({
+    Name = "Noclip [10%]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(noclip)
+        getgenv().col = noclip
+       for i,v in next, game.Players.LocalPlayer.Character:GetDescendants() do
+          if v.IsA(v,"BasePart") and getgenv().col == false then
+             v.CanCollide = true
+          elseif v.IsA(v,"BasePart") and getgenv().col == true then
+            v.CanCollide = false
+          end
+       end
+    end
+})
+
 TestTab:AddSlider({
 	Name = "Slider",
 	Value = 70, -- ค่าที่ให้เลือก
@@ -6152,6 +6167,32 @@ TestTab:AddToggle({
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(noobfly)
         getgenv().avoidsc = noobfly
+    end
+})
+TestTab:AddToggle({
+    Name = "Bypass A 90 [The Rooms]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(val)
+        flags.noa90 = val
+        
+        local jsframe = plr.PlayerGui:WaitForChild("MainUI"):WaitForChild("Jumpscare"):FindFirstChild("Jumpscare_A90")
+        if val and jsframe then
+            local face = jsframe:FindFirstChild("Face")
+                
+            if face then
+                local faceconnect
+                faceconnect = face.Changed:Connect(function()
+                    if face.Visible then
+                        repeat task.wait()
+                            game.ReplicatedStorage:WaitForChild("EntityInfo"):WaitForChild("A90"):FireServer(false)
+                        until not face.Visible
+                    end
+                end)
+                
+                repeat task.wait() until not flags.noa90
+                faceconnect:Disconnect()
+            end
+        end
     end
 })
 
@@ -6612,7 +6653,7 @@ local NotificationHolder = loadstring(game:HttpGet("https://raw.githubuserconten
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 
 TestTab:AddToggle({
-    Name = "Event notifiers {Beta]",
+    Name = "Event notifiers [Beta]",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(val)
     flags.hintrush = val
