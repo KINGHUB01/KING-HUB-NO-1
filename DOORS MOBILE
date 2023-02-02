@@ -140,6 +140,28 @@ end
 MainSection:Toggle("Remove Seek Arms",false, function(seek)
     getgenv().removearms = seek
 end)
+MainSection:Toggle("Bypass A 90 [The Rooms]",false, function(val)
+        flags.noa90 = val
+        
+        local jsframe = plr.PlayerGui:WaitForChild("MainUI"):WaitForChild("Jumpscare"):FindFirstChild("Jumpscare_A90")
+        if val and jsframe then
+            local face = jsframe:FindFirstChild("Face")
+                
+            if face then
+                local faceconnect
+                faceconnect = face.Changed:Connect(function()
+                    if face.Visible then
+                        repeat task.wait()
+                            game.ReplicatedStorage:WaitForChild("EntityInfo"):WaitForChild("A90"):FireServer(false)
+                        until not face.Visible
+                    end
+                end)
+                
+                repeat task.wait() until not flags.noa90
+                faceconnect:Disconnect()
+            end
+        end
+end)
 
 local ESP = win:Tab("ESP")
 
