@@ -6303,7 +6303,7 @@ TestTab:AddToggle({
             local door = room:WaitForChild("Door"):WaitForChild("Door")
             
             task.wait(0.1)
-            local h = esp(door,Color3.fromRGB(0,0,0),door,"Door")
+            local h = esp(door,Color3.fromRGB(90,255,40),door,"Door")
             table.insert(esptable.doors,h)
             
             door:WaitForChild("Open").Played:Connect(function()
@@ -6343,11 +6343,11 @@ TestTab:AddToggle({
                         local parts = hitbox:GetChildren()
                         table.remove(parts,table.find(parts,hitbox:WaitForChild("PromptHitbox")))
                         
-                        local h = esp(parts,Color3.fromRGB(0,0,0),hitbox,"Key")
+                        local h = esp(parts,Color3.fromRGB(255,255,255),hitbox,"Key")
                         table.insert(esptable.keys,h)
                         
                     elseif v.Name == "LeverForGate" then
-                        local h = esp(v,Color3.fromRGB(0,0,0),v.PrimaryPart,"Lever")
+                        local h = esp(v,Color3.fromRGB(255,255,255),v.PrimaryPart,"Lever")
                         table.insert(esptable.keys,h)
                         
                         v.PrimaryPart:WaitForChild("SoundToPlay").Played:Connect(function()
@@ -6391,7 +6391,7 @@ TestTab:AddToggle({
                     if v:IsA("Model") and (v:GetAttribute("Pickup") or v:GetAttribute("PropType")) then
                         task.wait(0.1)
                         
-                        local h = esp(v:WaitForChild("Handle"),Color3.fromRGB(0,0,0),v.Handle,v.Name)
+                        local h = esp(v:WaitForChild("Handle"),Color3.fromRGB(255,255,255),v.Handle,v.Name)
                         table.insert(esptable.items,h)
                     end
                 end
@@ -6436,7 +6436,7 @@ TestTab:AddToggle({
                 if v:IsA("Model") and (v.Name == "LiveHintBook" or v.Name == "LiveBreakerPolePickup") then
                     task.wait(0.1)
                     
-                    local h = esp(v,Color3.fromRGB(0,0,0),v.PrimaryPart,"Book")
+                    local h = esp(v,Color3.fromRGB(255,240,0),v.PrimaryPart,"Book")
                     table.insert(esptable.books,h)
                     
                     v.AncestryChanged:Connect(function()
@@ -6560,9 +6560,9 @@ function UpdatePlayerChams()
                         name.BackgroundTransparency = 1
                         name.TextStrokeTransparency = 0.5
                         if v.Team == game.Players.LocalPlayer.Team then
-                            name.TextColor3 = Color3.new(0, 0, 0)
+                            name.TextColor3 = Color3.new(102, 255, 153)
                         else
-                            name.TextColor3 = Color3.new(0, 0, 0)
+                            name.TextColor3 = Color3.new(102, 255, 153)
                         end
                     else
                         v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
@@ -6608,8 +6608,39 @@ local TestTab = Page:CreateSection({
     Side = "Right" -- ตำแหน่ง Left/Right
 })
 
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
 TestTab:AddToggle({
-    Name = "Event notifiers",
+    Name = "Event notifiers {Beta]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(val)
+    flags.hintrush = val
+    
+    if val then
+        local addconnect
+        addconnect = workspace.ChildAdded:Connect(function(v)
+            if table.find(entitynames,v.Name) then
+                repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
+                
+                if v:IsDescendantOf(workspace) then
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = v.Name:gsub("Moving",""):lower().." Spawned Hide!"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
+        end) 
+        
+        repeat task.wait() until not flags.hintrush
+        addconnect:Disconnect()
+    end
+    end
+})
+
+TestTab:AddToggle({
+    Name = "Event notifiers [Old]",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(notifier)
 _G.notifiers = notifier
