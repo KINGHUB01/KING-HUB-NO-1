@@ -387,25 +387,24 @@ end
 MainSection:Toggle("Remove Seek Arms",false, function(seek)
     getgenv().removearms = seek
 end)
+
+local a90remote = game.ReplicatedStorage:WaitForChild("EntityInfo"):WaitForChild("A90")
+
 MainSection:Toggle("Bypass A 90 [The Rooms]",false, function(val)
         flags.noa90 = val
         
-        local jsframe = plr.PlayerGui:WaitForChild("MainUI"):WaitForChild("Jumpscare"):FindFirstChild("Jumpscare_A90")
-        if val and jsframe then
-            local face = jsframe:FindFirstChild("Face")
+        if val  then
+            local jumpscare = plr.PlayerGui:WaitForChild("MainUI"):WaitForChild("Jumpscare"):FindFirstChild("Jumpscare_A90")
+           
+            if jumpscare then
+                jumpscare.Parent = nil
                 
-            if face then
-                local faceconnect
-                faceconnect = face.Changed:Connect(function()
-                    if face.Visible then
-                        repeat task.wait()
-                            game.ReplicatedStorage:WaitForChild("EntityInfo"):WaitForChild("A90"):FireServer(false)
-                        until not face.Visible
-                    end
-                end)
-                
-                repeat task.wait() until not flags.noa90
-                faceconnect:Disconnect()
+                a90remote.Parent = nil
+                repeat task.wait()
+                    game.SoundService.Main.Volume = 1 
+                until not flags.noa90
+                jumpscare.Parent = plr.PlayerGui.MainUI.Jumpscare
+                a90remote.Parent = entityinfo 
             end
         end
 end)
