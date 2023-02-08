@@ -571,7 +571,7 @@ TestTab:AddToggle({
 local a90remote = game.ReplicatedStorage:WaitForChild("EntityInfo"):WaitForChild("A90")
 
 TestTab:AddToggle({
-    Name = "Bypass A 90 [The Rooms]",
+    Name = "Bypass A-90 [The Rooms]",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(val)
         flags.noa90 = val
