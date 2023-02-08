@@ -369,6 +369,104 @@ TestTab:AddToggle({
     end
 })
 TestTab:AddToggle({
+    Name = "Old Seek",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Sekold)
+if Sekold then
+
+_G.EZLODES = true
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.EZLODES then
+local Tuking = true
+local TOOL = 1
+local TOOLKing = 0
+
+game:GetService("Workspace").SeekMoving.Figure.Transparency = TOOLKing
+game:GetService("Workspace").SeekMoving.Figure.ParticleEmitter.Enabled = Tuking
+game:GetService("Workspace").SeekMoving.Figure.Attachment.ParticleEmitter.Enabled = Tuking
+game:GetService("Workspace").SeekMoving.SeekRig.UpperTorso.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftLowerArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightLowerLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightUpperArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightUpperLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightLowerArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftUpperLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LowerTorso.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Black.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Eye.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Eye.Decal.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftLowerLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftUpperArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.SeekPuddle.Transparency = TOOL
+        end
+    end)
+end)
+        else
+
+_G.EZLODES = false
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.EZLODES then
+local Tuking = true
+local TOOL = 1
+local TOOLKing = 0
+
+game:GetService("Workspace").SeekMoving.Figure.Transparency = TOOLKing
+game:GetService("Workspace").SeekMoving.Figure.ParticleEmitter.Enabled = Tuking
+game:GetService("Workspace").SeekMoving.Figure.Attachment.ParticleEmitter.Enabled = Tuking
+game:GetService("Workspace").SeekMoving.SeekRig.UpperTorso.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftLowerArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightLowerLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightUpperArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightUpperLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightLowerArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftUpperLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LowerTorso.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Black.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Eye.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Eye.Decal.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftLowerLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftUpperArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.SeekPuddle.Transparency = TOOL
+        end
+    end)
+end)
+
+wait()
+
+
+local Tuking = false
+local TOOL = 0
+local TOOLKing = 1
+
+game:GetService("Workspace").SeekMoving.Figure.Transparency = TOOLKing
+game:GetService("Workspace").SeekMoving.Figure.ParticleEmitter.Enabled = Tuking
+game:GetService("Workspace").SeekMoving.Figure.Attachment.ParticleEmitter.Enabled = Tuking
+game:GetService("Workspace").SeekMoving.SeekRig.UpperTorso.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftLowerArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightLowerLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightUpperArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightUpperLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.RightLowerArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftUpperLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LowerTorso.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Black.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Eye.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.Head.Eye.Decal.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftLowerLeg.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.LeftUpperArm.Transparency = TOOL
+game:GetService("Workspace").SeekMoving.SeekRig.SeekPuddle.Transparency = TOOL
+
+end
+    end
+})
+TestTab:AddToggle({
     Name = "Auto Loot Containers",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(val)
