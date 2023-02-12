@@ -352,7 +352,26 @@ TestTab:AddToggle({
             end
 		end)
     end
+})+
+
+game:GetService("Workspace").CurrentRooms.DescendantAdded:Connect(function(v)
+    if not getgenv().midd then return end
+    if v.IsA(v,"ProximityPrompt") then
+       if getgenv().midd then
+        v.MaxActivationDistance = 20
+       end
+    end
+end)
+
+
+TestTab:AddToggle({
+    Name = "Press E Far",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(MALE)
+getgenv().midd = MALE
+    end
 })
+
 TestTab:AddToggle({
     Name = "Win Heartbeat",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
