@@ -1,4 +1,30 @@
-if _G.L == "TH" then
+local KingOnTop = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TH = Instance.new("TextButton")
+local ENG = Instance.new("TextButton")
+local L = Instance.new("TextLabel")
+local Or = Instance.new("TextLabel")
+
+KingOnTop.Name = "KingOnTop"
+KingOnTop.Parent = game:WaitForChild("CoreGui")
+KingOnTop.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = KingOnTop
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0.323304534, 0, 0.479919642, 0)
+Frame.Size = UDim2.new(0, 484, 0, 100)
+
+TH.Name = "TH"
+TH.Parent = Frame
+TH.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TH.Size = UDim2.new(0, 138, 0, 99)
+TH.Font = Enum.Font.SourceSans
+TH.Text = "Thailand [ไทย]"
+TH.TextColor3 = Color3.fromRGB(255, 0, 0)
+TH.TextSize = 25.000
+TH.MouseButton1Down:connect(function()
+game:GetService("CoreGui").KingOnTop:Destroy()
+wait()
 loadstring(game:HttpGet("https://pastebin.com/raw/Ct05PRsH"))()
 wait()
 local plr = game.Players.LocalPlayer
@@ -905,9 +931,19 @@ getgenv().outlinetrans = 0 --Change outline transparency
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
 end)
-
-else
-
+end)
+ENG.Name = "ENG"
+ENG.Parent = Frame
+ENG.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ENG.Position = UDim2.new(0.671487629, 0, 0, 0)
+ENG.Size = UDim2.new(0, 159, 0, 99)
+ENG.Font = Enum.Font.SourceSans
+ENG.Text = "English [อังกฤษ]"
+ENG.TextColor3 = Color3.fromRGB(255, 0, 0)
+ENG.TextSize = 29.000
+ENG.MouseButton1Down:connect(function()
+game:GetService("CoreGui").KingOnTop:Destroy()
+wait()
 loadstring(game:HttpGet("https://pastebin.com/raw/Ct05PRsH"))()
 wait()
 local plr = game.Players.LocalPlayer
@@ -1813,4 +1849,23 @@ getgenv().outlinetrans = 0 --Change outline transparency
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
 end)
-end
+end)
+L.Name = "L"
+L.Parent = Frame
+L.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+L.Position = UDim2.new(0, 0, -0.389999986, 0)
+L.Size = UDim2.new(0, 484, 0, 38)
+L.Font = Enum.Font.SourceSans
+L.Text = "Language [ภาษา]"
+L.TextColor3 = Color3.fromRGB(0, 0, 0)
+L.TextSize = 37.000
+
+Or.Name = "Or"
+Or.Parent = Frame
+Or.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Or.Position = UDim2.new(0.285123974, 0, -0.00999999978, 0)
+Or.Size = UDim2.new(0, 187, 0, 101)
+Or.Font = Enum.Font.SourceSans
+Or.Text = "Or [หรือ]"
+Or.TextColor3 = Color3.fromRGB(0, 255, 85)
+Or.TextSize = 64.000
