@@ -242,6 +242,19 @@ MainSection:Toggle("กดEโครตเร็วเลยคับพี่",
             end
 		end)
 end)
+
+game:GetService("Workspace").CurrentRooms.DescendantAdded:Connect(function(v)
+    if not getgenv().midd then return end
+    if v.IsA(v,"ProximityPrompt") then
+       if getgenv().midd then
+        v.MaxActivationDistance = 20
+       end
+    end
+end)
+
+MainSection:Toggle("กด E อย่างไกล",false, function(MALE)
+getgenv().midd = MALE
+end)
 MainSection:Toggle("ออโต้ เปิดลิ้นชัก",false, function(val)
     flags.draweraura = val
     
@@ -1137,6 +1150,18 @@ MainSection:Toggle("Instant Interract",false, function(noEwait)
 			fireproximityprompt(prompt)
             end
 		end)
+end)
+game:GetService("Workspace").CurrentRooms.DescendantAdded:Connect(function(v)
+    if not getgenv().midd then return end
+    if v.IsA(v,"ProximityPrompt") then
+       if getgenv().midd then
+        v.MaxActivationDistance = 20
+       end
+    end
+end)
+
+MainSection:Toggle("Press E Far",false, function(MALE)
+getgenv().midd = MALE
 end)
 MainSection:Toggle("Auto Loot Containers",false, function(val)
     flags.draweraura = val
