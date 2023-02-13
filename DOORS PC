@@ -352,7 +352,7 @@ TestTab:AddToggle({
             end
 		end)
     end
-})+
+})
 
 game:GetService("Workspace").CurrentRooms.DescendantAdded:Connect(function(v)
     if not getgenv().midd then return end
