@@ -340,6 +340,86 @@ TestTab:AddToggle({
     end
 })
 
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.SeekES then
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").ChandelierObstruction:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").ChandelierObstruction:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").ChandelierObstruction:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Remove Seek Arms/Fire",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(SeekESs)
+_G.SeekES = SeekESs
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.Gates then
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Gate"):Destroy()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Remove Gate Doors",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Gatess)
+_G.Gates = Gatess
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.PuzzleD then
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Paintings:Destroy()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Remove Puzzle Doors",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(PuzzleDs)
+_G.PuzzleD = PuzzleDs
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.SkeletonD then
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Wax_Door"):Destroy()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Remove Skeleton Door",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(SkeletonDs)
+_G.SkeletonD = SkeletonDs
+    end
+})
+
+
 
 TestTab:AddToggle({
     Name = "Fast E",
@@ -627,37 +707,6 @@ TestTab:AddToggle({
         repeat task.wait() until not flags.draweraura
         addconnect:Disconnect()
     end
-    end
-})
-
-TestTab:AddToggle({
-    Name = "Remove Seek Arms/Fire",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(SeekESs)
-_G.SeekES = SeekESs
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    pcall(function()
-        if _G.SeekES then
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").ChandelierObstruction:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").ChandelierObstruction:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").ChandelierObstruction:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Seek_Arm:Destroy()
-        end
-    end)
-end)
     end
 })
 
@@ -1121,7 +1170,7 @@ local NotificationHolder = loadstring(game:HttpGet("https://raw.githubuserconten
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 
 TestTab:AddToggle({
-    Name = "Event notifiers [Beta]",
+    Name = "Event notifiers",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(val)
     flags.hintrush = val
@@ -1147,32 +1196,6 @@ TestTab:AddToggle({
     end
     end
 })
-
-TestTab:AddToggle({
-    Name = "Event notifiers [Old]",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(notifier)
-_G.notifiers = notifier
-    end
-})
-
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-
-    task.spawn(function()
-        game.Workspace.ChildAdded:Connect(function(v)
-if _G.notifiers then
-            if v:IsA("Model") then
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = v.Name.. " Spawned!"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-                task.wait(5)
-            end
-end
-        end)
-    end)
 
 local RushSpawn = TestTab:AddLabel({
     Name = "? : [IDK]"
