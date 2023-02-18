@@ -482,6 +482,10 @@ MainSection:Toggle("ออโต้ เปิดลิ้นชัก",false, fu
         addconnect:Disconnect()
     end
 end)
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
 MainSection:Toggle("แจ้งเตือนอีเว้น",false, function(val)
     flags.hintrush = val
     
@@ -1478,6 +1482,10 @@ MainSection:Toggle("Auto Loot Containers",false, function(val)
         addconnect:Disconnect()
     end
 end)
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
 MainSection:Toggle("Event notifiers",false, function(val)
     flags.hintrush = val
     
