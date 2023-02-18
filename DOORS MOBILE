@@ -1,3 +1,19 @@
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = "PC version available"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = "มีของคอมด้วยนะครับ"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+
+
 local KingOnTop = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TH = Instance.new("TextButton")
