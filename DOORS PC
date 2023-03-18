@@ -320,23 +320,34 @@ local TestTab = Page:CreateSection({
     Side = "Right" -- ตำแหน่ง Left/Right
 })
 
-TestTab:AddToggle({
-    Name = "FullBright",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(v)
-        if v then
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FullBEB then
             game:GetService("Lighting").Brightness = 2
             game:GetService("Lighting").ClockTime = 14
             game:GetService("Lighting").FogEnd = 100000
             game:GetService("Lighting").GlobalShadows = false
             game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "FullBright",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(v)
+        if v then
+_G.FullBEB = true
         else
+_G.FullBEB = false
+wait()
             game:GetService("Lighting").Brightness = 3
             game:GetService("Lighting").ClockTime = 20
             game:GetService("Lighting").FogEnd = 1.1111111533265e+16
             game:GetService("Lighting").GlobalShadows = true
             game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(0.5, 0.5, 0.5)
-        end
+     end
+end)
     end
 })
 
