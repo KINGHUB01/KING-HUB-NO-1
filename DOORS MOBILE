@@ -1,19 +1,3 @@
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = "มีของคอมด้วยนะครับ"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = "PC version available"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-
-
 local KingOnTop = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TH = Instance.new("TextButton")
@@ -510,33 +494,6 @@ MainSection:Toggle("ออโต้ เปิดลิ้นชัก",false, fu
 end)
 
 local entitynames = {"RushMoving","AmbushMoving","Snare","A60","A120"}
-
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-
-MainSection:Toggle("แจ้งเตือนอีเว้น [แก้ไขแล้ว]",false, function(val)
-    flags.hintrush = val
-    
-    if val then
-        local addconnect
-        addconnect = workspace.ChildAdded:Connect(function(v)
-            if table.find(entitynames,v.Name) then
-                repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
-                
-                if v:IsDescendantOf(workspace) then
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = v.Name:gsub("Moving",""):lower().." มา แอบดิรอไร!"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-                end
-            end
-        end) 
-        
-        repeat task.wait() until not flags.hintrush
-        addconnect:Disconnect()
-    end
-end)
 
 MainSection:Toggle("Seek แบบเก่า",false, function(Sekold)
 if Sekold then
@@ -1041,6 +998,90 @@ getgenv().outlinetrans = 0 --Change outline transparency
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
 end)
+
+local MainSection = win:Tab("แจ้งเตือน")
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+MainSection:Toggle("อีเว้น",false, function(val)
+    flags.hintrush = val
+    
+    if val then
+        local addconnect
+        addconnect = workspace.ChildAdded:Connect(function(v)
+            if table.find(entitynames,v.Name) then
+                repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
+                
+                if v:IsDescendantOf(workspace) then
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = v.Name:gsub("Moving",""):lower().." มา แอบดิรอไร!"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
+        end) 
+        
+        repeat task.wait() until not flags.hintrush
+        addconnect:Disconnect()
+    end
+end)
+MainSection:Toggle("โค้ดห้องสมุด",false, function(val)
+    flags.getcode = val
+    
+    if val then
+        local function deciphercode()
+        local paper = char:FindFirstChild("LibraryHintPaper")
+        local hints = plr.PlayerGui:WaitForChild("PermUI"):WaitForChild("Hints")
+        
+        local code = {[1]="_",[2]="_",[3]="_",[4]="_",[5]="_"}
+            
+            if paper then
+                for i,v in pairs(paper:WaitForChild("UI"):GetChildren()) do
+                    if v:IsA("ImageLabel") and v.Name ~= "Image" then
+                        for i,img in pairs(hints:GetChildren()) do
+                            if img:IsA("ImageLabel") and img.Visible and v.ImageRectOffset == img.ImageRectOffset then
+                                local num = img:FindFirstChild("TextLabel").Text
+                                
+                                code[tonumber(v.Name)] = num 
+                            end
+                        end
+                    end
+                end 
+            end
+            
+            return code
+        end
+        
+        local addconnect
+        addconnect = char.ChildAdded:Connect(function(v)
+            if v:IsA("Tool") and v.Name == "LibraryHintPaper" then
+                task.wait()
+                
+                local code = table.concat(deciphercode())
+                
+                if code:find("_") then
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Get all books first"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                else
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Code is ".. code},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
+        end)
+        
+        repeat task.wait() until not flags.getcode
+        addconnect:Disconnect()
+    end
+end)
+
 end)
 ENG.Name = "ENG"
 ENG.Parent = Frame
@@ -1513,33 +1554,6 @@ MainSection:Toggle("Auto Loot Containers",false, function(val)
 end)
 
 local entitynames = {"RushMoving","AmbushMoving","Snare","A60","A120"}
-
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-
-MainSection:Toggle("Event notifiers [Fixed]",false, function(val)
-    flags.hintrush = val
-    
-    if val then
-        local addconnect
-        addconnect = workspace.ChildAdded:Connect(function(v)
-            if table.find(entitynames,v.Name) then
-                repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
-                
-                if v:IsDescendantOf(workspace) then
-            Notification:Notify(
-    {Title = "KING HUB Notification", Description = v.Name:gsub("Moving",""):lower().." Spawned Hide!"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-                end
-            end
-        end) 
-        
-        repeat task.wait() until not flags.hintrush
-        addconnect:Disconnect()
-    end
-end)
 
 MainSection:Toggle("Old Seek",false, function(Sekold)
 if Sekold then
@@ -2044,6 +2058,89 @@ getgenv().outlinetrans = 0 --Change outline transparency
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
 end)
+local MainSection = win:Tab("แจ้งเตือน")
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+MainSection:Toggle("Event",false, function(val)
+    flags.hintrush = val
+    
+    if val then
+        local addconnect
+        addconnect = workspace.ChildAdded:Connect(function(v)
+            if table.find(entitynames,v.Name) then
+                repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
+                
+                if v:IsDescendantOf(workspace) then
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = v.Name:gsub("Moving",""):lower().." มา แอบดิรอไร!"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
+        end) 
+        
+        repeat task.wait() until not flags.hintrush
+        addconnect:Disconnect()
+    end
+end)
+MainSection:Toggle("library code",false, function(val)
+    flags.getcode = val
+    
+    if val then
+        local function deciphercode()
+        local paper = char:FindFirstChild("LibraryHintPaper")
+        local hints = plr.PlayerGui:WaitForChild("PermUI"):WaitForChild("Hints")
+        
+        local code = {[1]="_",[2]="_",[3]="_",[4]="_",[5]="_"}
+            
+            if paper then
+                for i,v in pairs(paper:WaitForChild("UI"):GetChildren()) do
+                    if v:IsA("ImageLabel") and v.Name ~= "Image" then
+                        for i,img in pairs(hints:GetChildren()) do
+                            if img:IsA("ImageLabel") and img.Visible and v.ImageRectOffset == img.ImageRectOffset then
+                                local num = img:FindFirstChild("TextLabel").Text
+                                
+                                code[tonumber(v.Name)] = num 
+                            end
+                        end
+                    end
+                end 
+            end
+            
+            return code
+        end
+        
+        local addconnect
+        addconnect = char.ChildAdded:Connect(function(v)
+            if v:IsA("Tool") and v.Name == "LibraryHintPaper" then
+                task.wait()
+                
+                local code = table.concat(deciphercode())
+                
+                if code:find("_") then
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Get all books first"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                else
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Code is ".. code},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
+        end)
+        
+        repeat task.wait() until not flags.getcode
+        addconnect:Disconnect()
+    end
+end)
+
 end)
 L.Name = "L"
 L.Parent = Frame
