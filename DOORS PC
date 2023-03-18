@@ -1162,7 +1162,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/m
 })
 
 local TestTab = Page:CreateSection({
-    Name = "View Entities", -- ชื่อ
+    Name = "Notifiers", -- ชื่อ
     Side = "Right" -- ตำแหน่ง Left/Right
 })
 
@@ -1170,7 +1170,7 @@ local NotificationHolder = loadstring(game:HttpGet("https://raw.githubuserconten
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 
 TestTab:AddToggle({
-    Name = "Event notifiers",
+    Name = "Event",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(val)
     flags.hintrush = val
@@ -1196,46 +1196,61 @@ TestTab:AddToggle({
     end
     end
 })
-
-local RushSpawn = TestTab:AddLabel({
-    Name = "? : [IDK]"
-})
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-if not game.workspace:FindFirstChild("RushMoving") then
-    RushSpawn:Set("🔴 : Rush No Spawn")
-elseif game.workspace:FindFirstChild("RushMoving") then
-    RushSpawn:Set("🟢 : Rush Spawn Hide!")
-end
+TestTab:AddToggle({
+    Name = "library code",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(val)
+    flags.getcode = val
+    
+    if val then
+        local function deciphercode()
+        local paper = char:FindFirstChild("LibraryHintPaper")
+        local hints = plr.PlayerGui:WaitForChild("PermUI"):WaitForChild("Hints")
+        
+        local code = {[1]="_",[2]="_",[3]="_",[4]="_",[5]="_"}
+            
+            if paper then
+                for i,v in pairs(paper:WaitForChild("UI"):GetChildren()) do
+                    if v:IsA("ImageLabel") and v.Name ~= "Image" then
+                        for i,img in pairs(hints:GetChildren()) do
+                            if img:IsA("ImageLabel") and img.Visible and v.ImageRectOffset == img.ImageRectOffset then
+                                local num = img:FindFirstChild("TextLabel").Text
+                                
+                                code[tonumber(v.Name)] = num 
+                            end
+                        end
+                    end
+                end 
+            end
+            
+            return code
+        end
+        
+        local addconnect
+        addconnect = char.ChildAdded:Connect(function(v)
+            if v:IsA("Tool") and v.Name == "LibraryHintPaper" then
+                task.wait()
+                
+                local code = table.concat(deciphercode())
+                
+                if code:find("_") then
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Get all books first"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                else
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Code is ".. code},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
         end)
-       end)
-    end)
-local AmbushMovingSpawn = TestTab:AddLabel({
-    Name = "? : [IDK]"
+        
+        repeat task.wait() until not flags.getcode
+        addconnect:Disconnect()
+    end
+    end
 })
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-if not game.workspace:FindFirstChild("AmbushMoving") then
-    AmbushMovingSpawn:Set("🔴 : Ambush No Spawn")
-elseif game.workspace:FindFirstChild("AmbushMoving") then
-    AmbushMovingSpawn:Set("🟢 : Ambush Spawn Hide!")
-end
-        end)
-       end)
-    end)
-local SeekMovingSpawn = TestTab:AddLabel({
-    Name = "? : [IDK]"
-})
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-if not game.workspace:FindFirstChild("SeekMoving") then
-    SeekMovingSpawn:Set("🔴 : Seek No Spawn")
-elseif game.workspace:FindFirstChild("SeekMoving") then
-    SeekMovingSpawn:Set("🟢 : Good Luck Meet Seek!")
-end
-        end)
-       end)
-    end)
