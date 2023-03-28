@@ -2058,7 +2058,7 @@ getgenv().outlinetrans = 0 --Change outline transparency
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
 end)
-local MainSection = win:Tab("แจ้งเตือน")
+local MainSection = win:Tab("Notifier")
 
 local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
