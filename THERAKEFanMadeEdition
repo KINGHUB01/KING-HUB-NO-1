@@ -1,0 +1,391 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/KINGHUB01/KING-HUB-NO-1/main/Ui", true))()
+
+local PepsiUi = library:CreateWindow({
+    Name = "KING HUB | THE RAKE Fan Made",
+    Theme = {
+        Image = "rbxassetid://7483871523",
+        Info = "Info",
+        Background = {
+            Asset = "rbxassetid://11677001091"
+        }
+    }
+})
+
+local Page = PepsiUi:CreateTab({
+    Name = "Main"
+})
+
+local TestTab = Page:CreateSection({
+    Name = "LocalPlayer", -- ชื่อ
+    Side = "Left" -- ตำแหน่ง Left/Right
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.StaminaFrame then
+game.Players.LocalPlayer.PlayerGui.StaminaUI.StaminaFrame.StaminaStats.StaminaValue.Value = 100
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Infinite Stamina",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(StaminaFrames)
+_G.StaminaFrame = StaminaFrames
+    end
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FallDamage then
+game.Players.LocalPlayer.Character.FallDamage:Destroy()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Remove Fall Damage",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(FallDamages)
+_G.FallDamage = FallDamages
+    end
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.Exploit then
+game.Players.LocalPlayer.Character["Anti-Exploit"]:Destroy()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Remove Anti Exploit",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(ExploitS)
+_G.Exploit = ExploitS
+    end
+})
+TestTab:AddButton({
+    Name = "Unlook chat",
+    Callback = function()
+game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatChannelParentFrame.Visible = true
+game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Position = UDim2.new(0, 0, 1, -42)
+    end
+})
+
+local TestTab = Page:CreateSection({
+    Name = "Main", -- ชื่อ
+    Side = "Left" -- ตำแหน่ง Left/Right
+})
+
+TestTab:AddToggle({
+    Name = "Fast E",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(faste)
+        getgenv().noEwaits = faste
+        PromptButtonHoldBegan = game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+            if getgenv().noEwaits then
+			fireproximityprompt(prompt)
+            end
+        end)
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.BringScraps then
+for i,v in pairs(game:GetService("Workspace").Scraps:GetDescendants()) do
+    if v.ClassName == "Model" then
+     v.ScrapTouch.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            end
+         end
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Bring Scraps",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(BringScrapss)
+_G.BringScraps = BringScrapss
+    end
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.BringFlare then
+game:GetService("Workspace").ItemSpawnFG.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Bring Flare Gun",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(BringFlare)
+_G.BringFlare = BringFlare
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.Bringrakes then
+game:GetService("Workspace")["The_Rake"].HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Bring The Rake",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(Bringrake)
+_G.Bringrakes = Bringrake
+    end
+})
+
+TestTab:AddToggle({
+    Name = "Kill Aura [Rake]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(king)
+_G.KillS = king
+ 
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.KillS then
+game:GetService("Workspace")["The_Rake"].NPC.Health = -1000
+            end
+        end)
+       end)
+    end)
+    end
+})
+
+TestTab:AddToggle({
+    Name = "Vitamins Spam [Hold]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(statev)
+ _G.coinn = statev
+while _G.coinn do wait()
+            pcall(function()
+local Event = game.Players.LocalPlayer.Character.Vitamins.Script.RemoteEvent2
+Event:FireServer()
+end)
+end
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.StunSticksp then
+local Event = game.Players.LocalPlayer.Character.SpecialStunStick.Remote11
+Event:FireServer()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "pecial StunStick Spam [Hold]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(statev)
+        _G.StunSticksp = statev
+    end
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.StunStickspt then
+local Event = game.Players.LocalPlayer.Character.ProtectorStunstick.Remote11
+Event:FireServer()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Protector StunStick Spam [Hold]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(statevt)
+        _G.StunStickspt = statevt
+    end
+})
+TestTab:AddButton({
+    Name = "Fix Power",
+    Callback = function()
+local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart
+local object = "Rake"
+local pos = p1.CFrame
+
+p1.CFrame = game.Workspace.Map.PowerStation.Control.Buttons.DetectorPart.CFrame
+wait(0.5)
+fireproximityprompt(game:GetService("Workspace").Map.PowerStation.Control.Buttons.DetectorPart.ProximityPrompt, 1)
+wait(0.5)
+p1.CFrame = pos
+    end
+})
+
+TestTab:AddButton({
+    Name = "The Rake Ui",
+    Callback = function()
+game.Players.LocalPlayer.PlayerGui.RakeMonitorUI.Enabled = true
+    end
+})
+TestTab:AddButton({
+    Name = "Un The Rake Ui",
+    Callback = function()
+game.Players.LocalPlayer.PlayerGui.RakeMonitorUI.Enabled = false
+    end
+})
+TestTab:AddButton({
+    Name = "Give Item [Hold]",
+    Callback = function()
+local hrp  = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+hrp.Parent = nil;
+hrp:Clone()
+hrp.Parent =  game.Players.LocalPlayer.Character
+hrp.Name   = "Humanoid"
+    end
+})
+TestTab:AddButton({
+    Name = "Fast Respawn",
+    Callback = function()
+local Event = game.Players.LocalPlayer.Character.DeadEvent
+Event:FireServer()
+    end
+})
+
+local TestTab = Page:CreateSection({
+    Name = "Esp", -- ชื่อ
+    Side = "Right" -- ตำแหน่ง Left/Right
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        local esp = getgenv().esprake
+        local rake = game.Workspace:FindFirstChild("The_Rake")
+        local rakeHighlight = game.CoreGui:FindFirstChild("The_Rake")
+ 
+        if esp and rake then
+            if not rakeHighlight then
+                local highlight = Instance.new("Highlight", game.CoreGui)
+                highlight.Name = "The_Rake"
+                highlight.Adornee = rake
+                highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                highlight.FillColor = Color3.fromRGB(255, 0, 0)
+                highlights[rake] = highlight
+            end
+        else
+            if rakeHighlight then
+                rakeHighlight:Destroy()
+                highlights[rake] = nil
+            end
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "The Rake",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(rakeesp)
+getgenv().esprake = rakeesp
+local highlights = {}
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        local esp = getgenv().espgun
+        local rake = game.Workspace:FindFirstChild("ItemSpawnFG")
+        local rakeHighlight = game.CoreGui:FindFirstChild("ItemSpawnFG")
+ 
+        if esp and rake then
+            if not rakeHighlight then
+                local highlight = Instance.new("Highlight", game.CoreGui)
+                highlight.Name = "ItemSpawnFG"
+                highlight.Adornee = rake
+                highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                highlight.FillColor = Color3.fromRGB(242, 243, 243)
+                highlights[rake] = highlight
+            end
+        else
+            if rakeHighlight then
+                rakeHighlight:Destroy()
+                highlights[rake] = nil
+            end
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Flare Gun",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(gunesp)
+getgenv().espgun = gunesp
+local highlights = {}
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        local esp = getgenv().espsupplydrop
+        local rake = game.Workspace:FindFirstChild("SupplyDrop")
+        local rakeHighlight = game.CoreGui:FindFirstChild("SupplyDrop")
+ 
+        if esp and rake then
+            if not rakeHighlight then
+                local highlight = Instance.new("Highlight", game.CoreGui)
+                highlight.Name = "SupplyDrop"
+                highlight.Adornee = rake
+                highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                highlight.FillColor = Color3.fromRGB(52, 142, 64)
+                highlights[rake] = highlight
+            end
+        else
+            if rakeHighlight then
+                rakeHighlight:Destroy()
+                highlights[rake] = nil
+            end
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Supply Drop",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(SupplyDrop)
+getgenv().espsupplydrop = SupplyDrop
+local highlights = {}
+    end
+})
+
+TestTab:AddToggle({
+    Name = "Players",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(ESPPLAYER)
+getgenv().enabled = ESPPLAYER --Toggle on/off
+getgenv().filluseteamcolor = false --Toggle fill color using player team color on/off
+getgenv().outlineuseteamcolor = false --Toggle outline color using player team color on/off
+getgenv().fillcolor = Color3.new(242, 243, 243) --Change fill color, no need to edit if using team color
+getgenv().outlinecolor = Color3.new(0,0,0) --Change outline color, no need to edit if using team color
+getgenv().filltrans = 0 --Change fill transparency
+getgenv().outlinetrans = 0 --Change outline transparency
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
+    end
+})
+
+local TestTab = Page:CreateSection({
+    Name = "teleport", -- ชื่อ
+    Side = "Right" -- ตำแหน่ง Left/Right
+})
+
+TestTab:AddButton({
+    Name = "Goto Rake",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The_Rake"].HumanoidRootPart.CFrame
+    end
+})
+
+TestTab:AddButton({
+    Name = "Goto Shop",
+    Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-303.53244, 8.74807644, -260.441345, 0.0434882902, 8.9819217e-08, -0.999053955, 1.27711104e-08, 1, 9.04601976e-08, 0.999053955, -1.66929865e-08, 0.0434882902)
+    end
+})
