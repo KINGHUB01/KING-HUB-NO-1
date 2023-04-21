@@ -1,7 +1,8 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/KINGHUB01/KING-HUB-NO-1/main/Ui", true))()
+local entitynames = {"RushMoving","AmbushMoving","Snare","A60","A120"}
 
 local PepsiUi = library:CreateWindow({
-    Name = "KING HUB | DOORS",
+    Name = "KING HUB | DOORS [Dev]",
     Theme = {
         Image = "rbxassetid://7483871523",
         Info = "Info",
@@ -320,34 +321,23 @@ local TestTab = Page:CreateSection({
     Side = "Right" -- ตำแหน่ง Left/Right
 })
 
-game:GetService("RunService").RenderStepped:Connect(function()
-    pcall(function()
-        if _G.FullBEB then
-            game:GetService("Lighting").Brightness = 2
-            game:GetService("Lighting").ClockTime = 14
-            game:GetService("Lighting").FogEnd = 100000
-            game:GetService("Lighting").GlobalShadows = false
-            game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-        end
-    end)
-end)
-
 TestTab:AddToggle({
     Name = "FullBright",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(v)
         if v then
-_G.FullBEB = true
+            game:GetService("Lighting").Brightness = 2
+            game:GetService("Lighting").ClockTime = 14
+            game:GetService("Lighting").FogEnd = 100000
+            game:GetService("Lighting").GlobalShadows = false
+            game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
         else
-_G.FullBEB = false
-wait()
             game:GetService("Lighting").Brightness = 3
             game:GetService("Lighting").ClockTime = 20
             game:GetService("Lighting").FogEnd = 1.1111111533265e+16
             game:GetService("Lighting").GlobalShadows = true
             game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(0.5, 0.5, 0.5)
-     end
-end)
+        end
     end
 })
 
@@ -427,6 +417,30 @@ TestTab:AddToggle({
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(SkeletonDs)
 _G.SkeletonD = SkeletonDs
+    end
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.lasf then
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Chandelier:Destroy()
+        end
+    end)
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.lasf then
+game.workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Assets").Light_Fixtures:Destroy()
+        end
+    end)
+end)
+
+TestTab:AddToggle({
+    Name = "Remove Light [Anti Lag]",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(lasfs)
+_G.lasf = lasfs
     end
 })
 
@@ -620,7 +634,7 @@ end
     end
 })
 TestTab:AddToggle({
-    Name = "Auto Loot Containers",
+    Name = "Auto Loot",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
     Callback = function(val)
     flags.draweraura = val
@@ -721,6 +735,7 @@ TestTab:AddToggle({
     end
 })
 
+
 local a90remote = game.ReplicatedStorage:WaitForChild("EntityInfo"):WaitForChild("A90")
 
 TestTab:AddToggle({
@@ -743,6 +758,101 @@ TestTab:AddToggle({
                 a90remote.Parent = entityinfo 
             end
         end
+    end
+})
+
+local TestTab = Page:CreateSection({
+    Name = "Notification", -- ชื่อ
+    Side = "Right" -- ตำแหน่ง Left/Right
+})
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+
+TestTab:AddToggle({
+    Name = "Event",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(val)
+    flags.hintrush = val
+    
+    if val then
+        local addconnect
+        addconnect = workspace.ChildAdded:Connect(function(v)
+            if table.find(entitynames,v.Name) then
+                repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
+                
+                if v:IsDescendantOf(workspace) then
+            Notification:Notify(
+    {Title = "KING HUB Notification", Description = v.Name:gsub("Moving",""):lower().." Spawned Hide!"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
+        end) 
+        
+        repeat task.wait() until not flags.hintrush
+        addconnect:Disconnect()
+    end
+    end
+})
+TestTab:AddToggle({
+    Name = "library code",
+	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
+    Callback = function(val)
+    flags.getcode = val
+    
+    if val then
+        local function deciphercode()
+        local paper = char:FindFirstChild("LibraryHintPaper")
+        local hints = plr.PlayerGui:WaitForChild("PermUI"):WaitForChild("Hints")
+        
+        local code = {[1]="_",[2]="_",[3]="_",[4]="_",[5]="_"}
+            
+            if paper then
+                for i,v in pairs(paper:WaitForChild("UI"):GetChildren()) do
+                    if v:IsA("ImageLabel") and v.Name ~= "Image" then
+                        for i,img in pairs(hints:GetChildren()) do
+                            if img:IsA("ImageLabel") and img.Visible and v.ImageRectOffset == img.ImageRectOffset then
+                                local num = img:FindFirstChild("TextLabel").Text
+                                
+                                code[tonumber(v.Name)] = num 
+                            end
+                        end
+                    end
+                end 
+            end
+            
+            return code
+        end
+        
+        local addconnect
+        addconnect = char.ChildAdded:Connect(function(v)
+            if v:IsA("Tool") and v.Name == "LibraryHintPaper" then
+                task.wait()
+                
+                local code = table.concat(deciphercode())
+                
+                if code:find("_") then
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Get all books first"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                else
+            Notification:Notify(
+    {Title = "KING HUB Notification [Beta]", Description = "Code is ".. code},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
+    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
+)
+                end
+            end
+        end)
+        
+        repeat task.wait() until not flags.getcode
+        addconnect:Disconnect()
+    end
     end
 })
 
@@ -969,8 +1079,6 @@ TestTab:AddToggle({
     end
 })
 
-local entitynames = {"RushMoving","AmbushMoving","Snare","A60","A120"}
-
 TestTab:AddToggle({
     Name = "Entitys",
 	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
@@ -1169,99 +1277,5 @@ getgenv().filltrans = 0 --Change fill transparency
 getgenv().outlinetrans = 0 --Change outline transparency
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua"))()
-    end
-})
-
-local TestTab = Page:CreateSection({
-    Name = "Notifiers", -- ชื่อ
-    Side = "Right" -- ตำแหน่ง Left/Right
-})
-
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-
-TestTab:AddToggle({
-    Name = "Event",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(val)
-    flags.hintrush = val
-    
-    if val then
-        local addconnect
-        addconnect = workspace.ChildAdded:Connect(function(v)
-            if table.find(entitynames,v.Name) then
-                repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
-                
-                if v:IsDescendantOf(workspace) then
-            Notification:Notify(
-    {Title = "KING HUB Notification [Beta]", Description = v.Name:gsub("Moving",""):lower().." Spawned Hide!"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-                end
-            end
-        end) 
-        
-        repeat task.wait() until not flags.hintrush
-        addconnect:Disconnect()
-    end
-    end
-})
-TestTab:AddToggle({
-    Name = "library code",
-	Value = _G.ConfigToggle, -- ปรับค่าToggle true/false or Config
-    Callback = function(val)
-    flags.getcode = val
-    
-    if val then
-        local function deciphercode()
-        local paper = char:FindFirstChild("LibraryHintPaper")
-        local hints = plr.PlayerGui:WaitForChild("PermUI"):WaitForChild("Hints")
-        
-        local code = {[1]="_",[2]="_",[3]="_",[4]="_",[5]="_"}
-            
-            if paper then
-                for i,v in pairs(paper:WaitForChild("UI"):GetChildren()) do
-                    if v:IsA("ImageLabel") and v.Name ~= "Image" then
-                        for i,img in pairs(hints:GetChildren()) do
-                            if img:IsA("ImageLabel") and img.Visible and v.ImageRectOffset == img.ImageRectOffset then
-                                local num = img:FindFirstChild("TextLabel").Text
-                                
-                                code[tonumber(v.Name)] = num 
-                            end
-                        end
-                    end
-                end 
-            end
-            
-            return code
-        end
-        
-        local addconnect
-        addconnect = char.ChildAdded:Connect(function(v)
-            if v:IsA("Tool") and v.Name == "LibraryHintPaper" then
-                task.wait()
-                
-                local code = table.concat(deciphercode())
-                
-                if code:find("_") then
-            Notification:Notify(
-    {Title = "KING HUB Notification [Beta]", Description = "Get all books first"},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-                else
-            Notification:Notify(
-    {Title = "KING HUB Notification [Beta]", Description = "Code is ".. code},
-    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=11677001091", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
-                end
-            end
-        end)
-        
-        repeat task.wait() until not flags.getcode
-        addconnect:Disconnect()
-    end
     end
 })
