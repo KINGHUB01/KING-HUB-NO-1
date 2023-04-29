@@ -94,18 +94,18 @@ TestTab:AddToggle({
 game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
         if _G.BringScraps then
-for _, obj in pairs(game.Workspace.Scraps.Scrap1:GetChildren()) do
+for _, obj in pairs(game.Workspace.Map.Scraps.Scrap1:GetChildren()) do
 if obj.Name == "Scrap1" then
 if obj.Transparency == 0 then
 wait(0.1)
- 
+
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = obj.CFrame
  
 end
 end
 end
 
-for _, obj in pairs(game.Workspace.Scraps.Scrap2:GetChildren()) do
+for _, obj in pairs(game:GetService("Workspace").Map.Scraps.Scrap2:GetChildren()) do
 if obj.Name == "Scrap2" then
 if obj.Transparency == 0 then
 wait(0.1)
@@ -116,7 +116,7 @@ end
 end
 end
 
-for _, obj in pairs(game.Workspace.Scraps.Scrap3:GetChildren()) do
+for _, obj in pairs(game:GetService("Workspace").Map.Scraps.Scrap3:GetChildren()) do
 if obj.Name == "Scrap3" then
 if obj.Transparency == 0 then
 wait(0.1)
