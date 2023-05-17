@@ -8,7 +8,7 @@ Notification:Notify(
 )
 
 Notification:Notify(
-    {Title = "Notification", Description = "ez.run "https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing%20Doors%20Mobile"},
+    {Title = "Notification", Description = "ez.run <BlackKing.run>"},
     {OutlineColor = Color3.fromRGB(255,255,255),Time = 5, Type = "image"},
     {Image = "http://www.roblox.com/asset/?id=13429676701", ImageColor = Color3.fromRGB(255, 255, 255)}
 )
